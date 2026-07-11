@@ -1,0 +1,550 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Lakshmi Bharathy Kumar — Data Scientist</title>
+<meta name="description" content="Data Scientist with a background in marketing analytics, specializing in causal inference, Bayesian modeling, and applied machine learning." />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Public+Sans:wght@400;500;600;700;800&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet" />
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --bg:        #FFFFFF;
+    --surface:   #F7F8FA;
+    --surface-2: #F1F3F5;
+    --border:    #E3E6EA;
+    --text:      #1A1D23;
+    --muted:     #5B6472;
+    --muted-2:   #8A93A1;
+    --accent:    #2C5AA0;
+    --accent-soft: #EAF1FB;
+    --radius: 10px;
+    --sans: 'Public Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+    --mono: 'IBM Plex Mono', monospace;
+    --maxw: 880px;
+  }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: var(--sans);
+    font-size: 16px;
+    line-height: 1.65;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  a { color: inherit; }
+  ul { list-style: none; }
+
+  svg.icon { width: 15px; height: 15px; flex-shrink: 0; stroke: currentColor; fill: none; stroke-width: 1.8; stroke-linecap: round; stroke-linejoin: round; }
+
+  /* ===== NAV ===== */
+  nav {
+    position: sticky; top: 0; z-index: 100;
+    background: rgba(255,255,255,0.94);
+    backdrop-filter: blur(10px);
+    border-bottom: 1px solid var(--border);
+    padding: 0 clamp(1.25rem, 5vw, 3rem);
+    display: flex; align-items: center; justify-content: space-between;
+    height: 60px;
+  }
+  .nav-logo {
+    font-weight: 700; font-size: 15px;
+    color: var(--text); text-decoration: none;
+    letter-spacing: -0.2px;
+  }
+  .nav-links { display: flex; gap: 2rem; }
+  .nav-links a {
+    color: var(--muted); text-decoration: none; font-size: 14px; font-weight: 500;
+    transition: color 0.15s;
+  }
+  .nav-links a:hover { color: var(--text); }
+
+  /* ===== HERO ===== */
+  .hero {
+    padding: clamp(3.5rem, 9vw, 6rem) clamp(1.25rem, 5vw, 3rem) clamp(2.5rem, 6vw, 4rem);
+    max-width: var(--maxw); margin: 0 auto;
+    opacity: 0; transform: translateY(10px);
+    animation: rise 0.6s ease forwards;
+  }
+  @keyframes rise { to { opacity: 1; transform: translateY(0); } }
+
+  .eyebrow {
+    font-family: var(--mono); font-size: 12px; color: var(--accent);
+    letter-spacing: 1px; text-transform: uppercase; margin-bottom: 1rem;
+    display: flex; align-items: center; gap: 8px;
+  }
+  .eyebrow::before { content: ''; width: 20px; height: 1px; background: var(--accent); }
+
+  .hero-name {
+    font-size: clamp(2.1rem, 5vw, 2.9rem);
+    font-weight: 800; line-height: 1.08; letter-spacing: -0.8px;
+    margin-bottom: 0.6rem;
+  }
+  .hero-role {
+    font-size: clamp(1.05rem, 2.2vw, 1.2rem);
+    font-weight: 600; color: var(--accent);
+    margin-bottom: 1.1rem;
+  }
+  .hero-tagline {
+    font-size: 16px; color: var(--muted);
+    max-width: 620px; line-height: 1.75; margin-bottom: 1.75rem;
+  }
+
+  .hero-meta { display: flex; flex-wrap: wrap; gap: 0.6rem; margin-bottom: 2rem; }
+  .badge {
+    display: inline-flex; align-items: center; gap: 6px;
+    background: var(--surface); border: 1px solid var(--border);
+    border-radius: 20px; padding: 6px 12px 6px 10px;
+    font-size: 13px; color: var(--muted); font-weight: 500;
+  }
+  .badge svg { color: var(--accent); }
+
+  .hero-cta { display: flex; flex-wrap: wrap; gap: 0.75rem; }
+  .btn {
+    display: inline-flex; align-items: center; gap: 7px;
+    padding: 10px 18px; border-radius: 7px;
+    font-size: 14px; font-weight: 600; text-decoration: none;
+    transition: all 0.15s; cursor: pointer; border: 1px solid transparent;
+  }
+  .btn-primary { background: var(--text); color: #fff; }
+  .btn-primary:hover { background: #333940; }
+  .btn-outline { background: #fff; color: var(--text); border-color: var(--border); }
+  .btn-outline:hover { border-color: var(--muted-2); background: var(--surface); }
+
+  /* ===== SECTIONS ===== */
+  section {
+    padding: 3.5rem clamp(1.25rem, 5vw, 3rem);
+    max-width: var(--maxw); margin: 0 auto;
+  }
+  .section-eyebrow {
+    font-family: var(--mono); font-size: 12px; color: var(--accent);
+    letter-spacing: 1px; text-transform: uppercase; margin-bottom: 0.6rem;
+  }
+  .section-title {
+    font-size: clamp(1.3rem, 3vw, 1.6rem);
+    font-weight: 700; letter-spacing: -0.3px; margin-bottom: 0.5rem;
+  }
+  .section-sub { color: var(--muted); font-size: 14.5px; margin-bottom: 2.25rem; max-width: 560px; }
+  hr.divider { border: none; border-top: 1px solid var(--border); max-width: var(--maxw); margin: 0 auto; }
+
+  /* ===== ABOUT ===== */
+  .about-grid { display: grid; grid-template-columns: 1.4fr 1fr; gap: 2.5rem; align-items: start; }
+  .about-text { color: var(--muted); line-height: 1.8; font-size: 15px; }
+  .about-text + .about-text { margin-top: 1rem; }
+  .about-text strong { color: var(--text); font-weight: 600; }
+
+  .side-panel { display: flex; flex-direction: column; gap: 1.5rem; }
+  .side-block-label {
+    font-family: var(--mono); font-size: 11px; color: var(--muted-2);
+    text-transform: uppercase; letter-spacing: 1px; margin-bottom: 0.65rem;
+  }
+  .resume-item {
+    display: flex; align-items: center; justify-content: space-between;
+    background: var(--surface); border: 1px solid var(--border);
+    border-radius: var(--radius); padding: 12px 14px; gap: 0.75rem;
+  }
+  .resume-role { font-size: 13.5px; font-weight: 600; display: flex; align-items: center; gap: 8px; }
+  .resume-role svg { color: var(--accent); }
+  .resume-dl {
+    font-size: 12.5px; color: var(--accent); text-decoration: none; font-weight: 600;
+    display: inline-flex; align-items: center; gap: 4px; white-space: nowrap;
+  }
+  .resume-dl:hover { text-decoration: underline; }
+
+  .cert-item {
+    background: var(--surface); border: 1px solid var(--border);
+    border-radius: var(--radius); padding: 12px 14px;
+    display: flex; align-items: flex-start; justify-content: space-between; gap: 0.75rem;
+  }
+  .cert-name { font-size: 13.5px; font-weight: 600; display: flex; align-items: center; gap: 8px; margin-bottom: 3px; }
+  .cert-name svg { color: var(--accent); }
+  .cert-sub { font-size: 12px; color: var(--muted-2); padding-left: 23px; }
+  .pill {
+    font-size: 11px; font-family: var(--mono); font-weight: 500;
+    padding: 3px 9px; border-radius: 20px; white-space: nowrap; flex-shrink: 0;
+  }
+  .pill.progress { background: var(--accent-soft); color: var(--accent); }
+  .pill.complete { background: #EAF6EE; color: #2A7A45; }
+
+  /* ===== PROJECTS ===== */
+  .featured-card {
+    background: var(--surface); border: 1px solid var(--border);
+    border-radius: 14px; padding: 2rem; margin-bottom: 1.5rem;
+    display: flex; flex-direction: column; gap: 0.9rem;
+  }
+  .featured-label {
+    font-family: var(--mono); font-size: 11px; color: var(--accent);
+    text-transform: uppercase; letter-spacing: 1px; font-weight: 600;
+  }
+  .featured-title { font-size: 1.25rem; font-weight: 700; letter-spacing: -0.3px; }
+  .featured-desc { color: var(--muted); font-size: 14.5px; line-height: 1.7; max-width: 640px; }
+  .featured-metric {
+    font-family: var(--mono); font-size: 12.5px; color: var(--text);
+    background: #fff; border: 1px solid var(--border);
+    padding: 10px 14px; border-radius: 7px; line-height: 1.6;
+  }
+
+  .project-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 1.1rem;
+  }
+  .card {
+    background: #fff; border: 1px solid var(--border);
+    border-radius: var(--radius); padding: 1.3rem;
+    display: flex; flex-direction: column; gap: 0.7rem;
+    transition: border-color 0.15s, box-shadow 0.15s;
+  }
+  .card:hover { border-color: var(--muted-2); box-shadow: 0 4px 14px rgba(20,24,30,0.06); }
+  .card-top { display: flex; justify-content: space-between; align-items: flex-start; gap: 0.5rem; }
+  .card-title { font-size: 15px; font-weight: 700; line-height: 1.35; letter-spacing: -0.1px; }
+  .card-problem { font-size: 13.5px; color: var(--muted); line-height: 1.6; }
+  .card-metric {
+    font-family: var(--mono); font-size: 12px; color: var(--text);
+    background: var(--surface);
+    padding: 8px 10px; border-radius: 6px; border-left: 2px solid var(--accent);
+    line-height: 1.5;
+  }
+  .card-tags { display: flex; flex-wrap: wrap; gap: 5px; }
+  .tag {
+    font-size: 11px; font-family: var(--mono);
+    background: var(--surface); border: 1px solid var(--border);
+    border-radius: 4px; padding: 2px 7px; color: var(--muted);
+  }
+  .card-links { display: flex; gap: 0.5rem; margin-top: auto; padding-top: 0.35rem; }
+  .card-link {
+    font-size: 12.5px; font-weight: 600; padding: 6px 12px; border-radius: 6px;
+    text-decoration: none; border: 1px solid var(--border);
+    color: var(--muted); transition: all 0.15s;
+    display: inline-flex; align-items: center; gap: 5px;
+  }
+  .card-link:hover { color: var(--text); border-color: var(--muted-2); }
+  .card-link.primary { border-color: var(--accent); color: var(--accent); }
+  .card-link.primary:hover { background: var(--accent); color: #fff; }
+
+  .more-link {
+    display: inline-flex; align-items: center; gap: 6px;
+    margin-top: 1.75rem; font-size: 14px; font-weight: 600; color: var(--accent);
+    text-decoration: none;
+  }
+  .more-link:hover { text-decoration: underline; }
+
+  /* ===== SKILLS ===== */
+  .skills-list { display: flex; flex-direction: column; gap: 1.3rem; }
+  .skill-row { display: grid; grid-template-columns: 190px 1fr; gap: 1rem; align-items: baseline; padding: 1rem 0; border-top: 1px solid var(--border); }
+  .skill-row:first-child { border-top: none; padding-top: 0; }
+  .skill-group-label { font-size: 13.5px; font-weight: 700; color: var(--text); }
+  .skill-chips { display: flex; flex-wrap: wrap; gap: 6px; }
+  .chip { font-size: 12.5px; padding: 5px 11px; border-radius: 6px; background: var(--surface); border: 1px solid var(--border); color: var(--text); font-weight: 500; }
+
+  /* ===== CONTACT ===== */
+  .contact-box {
+    background: var(--surface); border: 1px solid var(--border);
+    border-radius: 14px; padding: 2.25rem;
+    display: flex; flex-direction: column; gap: 1.25rem;
+  }
+  .contact-links { display: flex; flex-wrap: wrap; gap: 0.75rem; }
+
+  footer { text-align: center; padding: 2.5rem; color: var(--muted-2); font-size: 13px; border-top: 1px solid var(--border); }
+
+  @media (max-width: 640px) {
+    .nav-links { display: none; }
+    .about-grid { grid-template-columns: 1fr; }
+    .skill-row { grid-template-columns: 1fr; gap: 0.4rem; }
+  }
+</style>
+</head>
+<body>
+
+<nav>
+  <a class="nav-logo" href="#">Lakshmi Bharathy Kumar</a>
+  <ul class="nav-links">
+    <li><a href="#about">About</a></li>
+    <li><a href="#projects">Projects</a></li>
+    <li><a href="#skills">Skills</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<div class="hero">
+  <div class="eyebrow">Portfolio</div>
+  <div class="hero-name">Lakshmi Bharathy Kumar</div>
+  <div class="hero-role">Data Scientist</div>
+  <p class="hero-tagline">
+    Completing an M.S. in Applied Data Intelligence at San José State University, with two years of professional
+    experience in marketing analytics before graduate school. I build statistically grounded, causally sound
+    models — from Bayesian marketing mix modeling to churn and uplift analysis — and pair that rigor with
+    hands-on experience in modern AI tooling.
+  </p>
+  <div class="hero-meta">
+    <span class="badge">
+      <svg class="icon" viewBox="0 0 24 24"><path d="M12 21c-4-4-7-7.5-7-11a7 7 0 0 1 14 0c0 3.5-3 7-7 11z"/><circle cx="12" cy="10" r="2.5"/></svg>
+      Open to work · Bay Area, CA
+    </span>
+    <span class="badge">
+      <svg class="icon" viewBox="0 0 24 24"><path d="M22 10L12 5 2 10l10 5 10-5z"/><path d="M6 12v5c0 1.5 3 3 6 3s6-1.5 6-3v-5"/></svg>
+      SJSU · May 2026
+    </span>
+    <span class="badge">
+      <svg class="icon" viewBox="0 0 24 24"><path d="M12 3l7 3v6c0 4.5-3 8-7 9-4-1-7-4.5-7-9V6l7-3z"/><path d="m9 12 2 2 4-4"/></svg>
+      Authorized to work in the U.S. without sponsorship
+    </span>
+  </div>
+  <div class="hero-cta">
+    <a class="btn btn-primary" href="https://linkedin.com/in/lakshmi-bharathy-kumar" target="_blank">
+      <svg class="icon" style="stroke:none;fill:currentColor" viewBox="0 0 24 24"><path d="M4.98 3.5C4.98 5 3.87 6 2.5 6S0 5 0 3.5 1.13 1 2.5 1s2.48 1 2.48 2.5zM.5 8.5h4V23h-4V8.5zM8.5 8.5h3.8v2h.06c.53-1 1.83-2.06 3.77-2.06 4.03 0 4.77 2.65 4.77 6.1V23h-4v-6.7c0-1.6-.03-3.66-2.23-3.66-2.23 0-2.57 1.75-2.57 3.55V23h-4V8.5z"/></svg>
+      LinkedIn
+    </a>
+    <a class="btn btn-outline" href="https://github.com/Lakshmibharathy11" target="_blank">
+      <svg class="icon" style="stroke:none;fill:currentColor" viewBox="0 0 24 24"><path d="M12 .3a12 12 0 0 0-3.8 23.4c.6.1.8-.3.8-.6v-2.2c-3.3.7-4-1.6-4-1.6-.6-1.4-1.4-1.8-1.4-1.8-1.1-.8.1-.7.1-.7 1.2.1 1.9 1.3 1.9 1.3 1.1 1.9 2.9 1.3 3.6 1 .1-.8.4-1.3.8-1.6-2.7-.3-5.5-1.3-5.5-5.9 0-1.3.5-2.4 1.3-3.2-.1-.3-.6-1.6.1-3.2 0 0 1-.3 3.4 1.2a11.5 11.5 0 0 1 6 0c2.3-1.5 3.3-1.2 3.3-1.2.7 1.6.2 2.9.1 3.2.8.8 1.3 1.9 1.3 3.2 0 4.6-2.8 5.6-5.5 5.9.4.4.8 1.1.8 2.2v3.3c0 .3.2.7.8.6A12 12 0 0 0 12 .3z"/></svg>
+      GitHub
+    </a>
+  </div>
+</div>
+
+<hr class="divider" />
+
+<!-- ABOUT -->
+<section id="about">
+  <div class="section-eyebrow">About</div>
+  <div class="section-title">Background</div>
+  <div class="about-grid">
+    <div>
+      <p class="about-text">
+        At <strong>RepuNEXT</strong>, I used Google Analytics and SEMrush to diagnose funnel drop-off and rebuild
+        SEO targeting, driving a <strong>25% increase in organic traffic</strong>. That was my first real exposure
+        to using data to change business outcomes, not just describe them. Graduate school let me go deeper into
+        the causal and statistical layer behind that kind of work.
+      </p>
+      <p class="about-text">
+        My recent projects reflect that same throughline: a Bayesian Marketing Mix Model recommending a
+        <strong>$4.8M budget reallocation</strong> across channels, and causal uplift modeling on over a million
+        users showing that naive targeting wastes roughly <strong>22% of ad spend</strong>. I've paired this with
+        churn and CLV modeling, and more recently, hands-on work with modern AI tooling — LangGraph agents, RAG,
+        and LLM evaluation pipelines — to understand how these systems behave in practice, not just in theory.
+      </p>
+      <p class="about-text">
+        My thesis benchmarked five ML classifiers and two fine-tuned CNNs for eye-tracking-based gaze classification,
+        reaching <strong>0.94 cross-user accuracy</strong>, 12 points above the published baseline. Manuscript in
+        preparation for publication.
+      </p>
+    </div>
+    <div class="side-panel">
+      <div>
+        <div class="side-block-label">Resume</div>
+        <div class="resume-item">
+          <span class="resume-role">
+            <svg class="icon" viewBox="0 0 24 24"><path d="M6 2h9l5 5v15H6z"/><path d="M15 2v5h5"/><path d="M9 13h6M9 17h6M9 9h2"/></svg>
+            Resume (2026)
+          </span>
+          <a class="resume-dl" href="Kumar_Lakshmibharathy_Resume_2026.pdf" download>
+            <svg class="icon" viewBox="0 0 24 24"><path d="M12 3v12m0 0 4-4m-4 4-4-4"/><path d="M4 19h16"/></svg>
+            Download
+          </a>
+        </div>
+      </div>
+      <div>
+        <div class="side-block-label">Certification</div>
+        <div class="cert-item">
+          <div>
+            <div class="cert-name">
+              <svg class="icon" viewBox="0 0 24 24"><path d="M6 19a4 4 0 0 1 0-8 5 5 0 0 1 9.6-1.5A4.5 4.5 0 0 1 18 19H6z"/></svg>
+              AWS Certified Solutions Architect
+            </div>
+            <div class="cert-sub">Associate · Target: August 2026</div>
+          </div>
+          <span class="pill progress">In progress</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<hr class="divider" />
+
+<!-- PROJECTS -->
+<section id="projects">
+  <div class="section-eyebrow">Projects</div>
+  <div class="section-title">Selected Work</div>
+  <p class="section-sub">A focused set of data science and analytics projects. Additional applied AI and ML
+    engineering work is available on GitHub.</p>
+
+  <div class="featured-card">
+    <div class="featured-label">Featured</div>
+    <div class="featured-title">Marketing Mix Modeling — Budget Allocator</div>
+    <p class="featured-desc">
+      Bayesian MMM using Google Meridian to quantify channel-level ROI across 5 channels on 156 weeks of geo-level
+      data. VIF-informed priors handle collinearity where data alone can't isolate individual channel contributions;
+      a constrained optimizer recommends budget reallocation, delivered through a Looker Studio dashboard.
+    </p>
+    <div class="featured-metric">$4.8M recommended reallocation · +0.5% projected conversion lift · mROI &lt; 1.0 confirms saturation on lowest-performing channel</div>
+    <div class="card-links">
+      <a class="card-link primary" href="https://github.com/Lakshmibharathy11/Marketing-Mix-Modeling-for-Multichannel-Budget-Allocation" target="_blank">
+        <svg class="icon" style="stroke:none;fill:currentColor" viewBox="0 0 24 24"><path d="M12 .3a12 12 0 0 0-3.8 23.4c.6.1.8-.3.8-.6v-2.2c-3.3.7-4-1.6-4-1.6-.6-1.4-1.4-1.8-1.4-1.8-1.1-.8.1-.7.1-.7 1.2.1 1.9 1.3 1.9 1.3 1.1 1.9 2.9 1.3 3.6 1 .1-.8.4-1.3.8-1.6-2.7-.3-5.5-1.3-5.5-5.9 0-1.3.5-2.4 1.3-3.2-.1-.3-.6-1.6.1-3.2 0 0 1-.3 3.4 1.2a11.5 11.5 0 0 1 6 0c2.3-1.5 3.3-1.2 3.3-1.2.7 1.6.2 2.9.1 3.2.8.8 1.3 1.9 1.3 3.2 0 4.6-2.8 5.6-5.5 5.9.4.4.8 1.1.8 2.2v3.3c0 .3.2.7.8.6A12 12 0 0 0 12 .3z"/></svg>
+        Code
+      </a>
+      <a class="card-link" href="https://datastudio.google.com/reporting/4b8a253d-cede-481e-bd2c-54a4517b0cd9" target="_blank">
+        <svg class="icon" viewBox="0 0 24 24"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><path d="M15 3h6v6"/><path d="M10 14 21 3"/></svg>
+        Dashboard
+      </a>
+    </div>
+  </div>
+
+  <div class="project-grid">
+
+    <div class="card">
+      <div class="card-top"><div class="card-title">Incrementality &amp; Uplift Modeling</div></div>
+      <p class="card-problem">Causal uplift models (T-learner, X-learner) on a 1M+ user incrementality benchmark, separating true ad-driven lift from baseline conversion propensity.</p>
+      <div class="card-metric">Naive targeting wasted ~22% of spend · uplift-based targeting: +14% incremental conversions at equal budget</div>
+      <div class="card-tags"><span class="tag">Python</span><span class="tag">XGBoost</span><span class="tag">Causal Inference</span></div>
+      <div class="card-links">
+        <a class="card-link primary" href="https://github.com/Lakshmibharathy11/Causal-Uplift-Budget-Optimizer" target="_blank">Code</a>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-top"><div class="card-title">Customer Lifetime Value &amp; Churn Risk</div></div>
+      <p class="card-problem">RFM segmentation and an XGBoost churn classifier on 96,000+ e-commerce orders, identifying at-risk high-value customers with SHAP-explained predictions.</p>
+      <div class="card-metric">ROC-AUC 0.84 · top 18% of customers drive 61% of revenue · At-Risk CLV 3.2x higher than Lost</div>
+      <div class="card-tags"><span class="tag">XGBoost</span><span class="tag">SHAP</span><span class="tag">K-Means</span></div>
+      <div class="card-links">
+        <a class="card-link primary" href="https://github.com/Lakshmibharathy11" target="_blank">Code</a>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-top"><div class="card-title">Corporate Bankruptcy Early Warning System</div></div>
+      <p class="card-problem">47 financial ratios across 3,722 companies, with temporal cross-validation enforcing a strict 2-year prediction horizon to prevent data leakage.</p>
+      <div class="card-metric">ROC-AUC 0.84 · 76% recall at 14% FPR · outperforms Altman Z-Score (0.71)</div>
+      <div class="card-tags"><span class="tag">XGBoost</span><span class="tag">Statsmodels</span><span class="tag">Temporal CV</span></div>
+      <div class="card-links">
+        <a class="card-link primary" href="https://github.com/Lakshmibharathy11" target="_blank">Code</a>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-top"><div class="card-title">Price Elasticity &amp; SKU Pricing Strategy</div></div>
+      <p class="card-problem">Log-log regression across 5,242 SKUs and 131,706 transactions to estimate price elasticity of demand for retail pricing decisions.</p>
+      <div class="card-metric">10 significant SKUs (p &lt; 0.05, R² &gt; 0.40) · top SKU elasticity −1.39</div>
+      <div class="card-tags"><span class="tag">Statsmodels</span><span class="tag">Pandas</span><span class="tag">Power BI</span></div>
+      <div class="card-links">
+        <a class="card-link primary" href="https://github.com/Lakshmibharathy11" target="_blank">Code</a>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-top"><div class="card-title">Eye-Tracking Gaze Classification</div></div>
+      <p class="card-problem">M.S. thesis. Evaluated 5 feature types and 7 model architectures for gaze-direction classification, targeting assistive interfaces for users with motor impairments.</p>
+      <div class="card-metric">0.94 cross-user accuracy · 12pp above published baseline · manuscript in preparation</div>
+      <div class="card-tags"><span class="tag">PyTorch</span><span class="tag">scikit-learn</span><span class="tag">ResNet18</span></div>
+      <div class="card-links">
+        <a class="card-link primary" href="https://github.com/Lakshmibharathy11/Graduate_Thesis" target="_blank">Code</a>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-top"><div class="card-title">Tesla Stock Sentiment Pipeline</div></div>
+      <p class="card-problem">Group project (DATA226, SJSU). End-to-end ELT pipeline combining stock data with tweet sentiment. My contributions: sentiment scoring, Snowflake ELT, SQL regression, Airflow scheduling, dbt modeling.</p>
+      <div class="card-metric">R² = 0.916 · next-day price most influenced by lagged 3- and 7-day sentiment averages</div>
+      <div class="card-tags"><span class="tag">Airflow</span><span class="tag">Snowflake</span><span class="tag">dbt</span><span class="tag">SQL</span></div>
+      <div class="card-links">
+        <a class="card-link primary" href="https://github.com/Lakshmibharathy11/Tesla_stock_sentiment_analysis" target="_blank">Code</a>
+      </div>
+    </div>
+
+  </div>
+
+  <a class="more-link" href="https://github.com/Lakshmibharathy11" target="_blank">
+    View additional projects on GitHub
+    <svg class="icon" viewBox="0 0 24 24"><path d="M7 17 17 7M7 7h10v10"/></svg>
+  </a>
+</section>
+
+<hr class="divider" />
+
+<!-- SKILLS -->
+<section id="skills">
+  <div class="section-eyebrow">Skills</div>
+  <div class="section-title">Technical Skills</div>
+  <p class="section-sub">Grounded in statistics and causal inference, with applied machine learning and data engineering depth.</p>
+  <div class="skills-list">
+    <div class="skill-row">
+      <div class="skill-group-label">Statistics &amp; Causal Inference</div>
+      <div class="skill-chips">
+        <span class="chip">Bayesian Inference</span><span class="chip">MCMC</span>
+        <span class="chip">Causal Inference</span><span class="chip">Marketing Mix Modeling</span>
+        <span class="chip">A/B Testing</span><span class="chip">Regression</span><span class="chip">Uplift Modeling</span>
+      </div>
+    </div>
+    <div class="skill-row">
+      <div class="skill-group-label">Languages &amp; ML</div>
+      <div class="skill-chips">
+        <span class="chip">Python</span><span class="chip">SQL</span>
+        <span class="chip">scikit-learn</span><span class="chip">XGBoost</span>
+        <span class="chip">SHAP</span><span class="chip">Statsmodels</span>
+      </div>
+    </div>
+    <div class="skill-row">
+      <div class="skill-group-label">Data Engineering &amp; Cloud</div>
+      <div class="skill-chips">
+        <span class="chip">Airflow</span><span class="chip">dbt</span>
+        <span class="chip">Snowflake</span><span class="chip">PostgreSQL</span>
+        <span class="chip">AWS</span><span class="chip">Docker</span>
+      </div>
+    </div>
+    <div class="skill-row">
+      <div class="skill-group-label">Visualization &amp; BI</div>
+      <div class="skill-chips">
+        <span class="chip">Power BI</span><span class="chip">Looker Studio</span>
+        <span class="chip">Streamlit</span><span class="chip">Matplotlib</span>
+      </div>
+    </div>
+    <div class="skill-row">
+      <div class="skill-group-label">Applied AI Tooling</div>
+      <div class="skill-chips">
+        <span class="chip">LangGraph</span><span class="chip">RAG</span>
+        <span class="chip">Prompt Engineering</span><span class="chip">LLM Evaluation</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<hr class="divider" />
+
+<!-- CONTACT -->
+<section id="contact">
+  <div class="section-eyebrow">Contact</div>
+  <div class="section-title">Get in Touch</div>
+  <div class="contact-box">
+    <p class="about-text" style="margin:0;">
+      Seeking <strong>Data Scientist, Marketing/Growth Analytics, or Analytics Engineering</strong> roles in the
+      Bay Area. Authorized to work in the U.S. without sponsorship.
+    </p>
+    <div class="contact-links">
+      <a class="btn btn-primary" href="https://linkedin.com/in/lakshmi-bharathy-kumar" target="_blank">
+        <svg class="icon" style="stroke:none;fill:currentColor" viewBox="0 0 24 24"><path d="M4.98 3.5C4.98 5 3.87 6 2.5 6S0 5 0 3.5 1.13 1 2.5 1s2.48 1 2.48 2.5zM.5 8.5h4V23h-4V8.5zM8.5 8.5h3.8v2h.06c.53-1 1.83-2.06 3.77-2.06 4.03 0 4.77 2.65 4.77 6.1V23h-4v-6.7c0-1.6-.03-3.66-2.23-3.66-2.23 0-2.57 1.75-2.57 3.55V23h-4V8.5z"/></svg>
+        LinkedIn
+      </a>
+      <a class="btn btn-outline" href="https://github.com/Lakshmibharathy11" target="_blank">
+        <svg class="icon" style="stroke:none;fill:currentColor" viewBox="0 0 24 24"><path d="M12 .3a12 12 0 0 0-3.8 23.4c.6.1.8-.3.8-.6v-2.2c-3.3.7-4-1.6-4-1.6-.6-1.4-1.4-1.8-1.4-1.8-1.1-.8.1-.7.1-.7 1.2.1 1.9 1.3 1.9 1.3 1.1 1.9 2.9 1.3 3.6 1 .1-.8.4-1.3.8-1.6-2.7-.3-5.5-1.3-5.5-5.9 0-1.3.5-2.4 1.3-3.2-.1-.3-.6-1.6.1-3.2 0 0 1-.3 3.4 1.2a11.5 11.5 0 0 1 6 0c2.3-1.5 3.3-1.2 3.3-1.2.7 1.6.2 2.9.1 3.2.8.8 1.3 1.9 1.3 3.2 0 4.6-2.8 5.6-5.5 5.9.4.4.8 1.1.8 2.2v3.3c0 .3.2.7.8.6A12 12 0 0 0 12 .3z"/></svg>
+        GitHub
+      </a>
+      <a class="btn btn-outline" href="mailto:lakshmibharathyk@gmail.com">
+        <svg class="icon" viewBox="0 0 24 24"><path d="M4 4h16v16H4z"/><path d="m4 6 8 7 8-7"/></svg>
+        Email
+      </a>
+    </div>
+  </div>
+</section>
+
+<footer>Lakshmi Bharathy Kumar · San Jose, CA · 2026</footer>
+
+</body>
+</html>
