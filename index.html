@@ -235,6 +235,57 @@
   }
   .more-link:hover { text-decoration: underline; }
 
+  /* ===== THESIS ===== */
+  .thesis-card {
+    background: var(--surface); border: 1px solid var(--border);
+    border-radius: 14px; padding: 2rem; margin-bottom: 1.5rem;
+  }
+  .thesis-title-full { font-size: 1.2rem; font-weight: 700; letter-spacing: -0.3px; margin-bottom: 0.35rem; }
+  .thesis-affil { font-size: 13px; color: var(--muted); margin-bottom: 1.25rem; }
+  .thesis-desc { color: var(--muted); font-size: 14.5px; line-height: 1.75; margin-bottom: 0.9rem; }
+  .thesis-desc strong { color: var(--text); font-weight: 600; }
+
+  .thesis-grid {
+    display: grid; grid-template-columns: 1fr 1fr;
+    gap: 1rem; margin-top: 1.5rem;
+  }
+  .thesis-block {
+    background: #fff; border: 1px solid var(--border);
+    border-radius: var(--radius); padding: 1.1rem 1.25rem;
+  }
+  .thesis-block-title {
+    font-family: var(--mono); font-size: 11.5px; color: var(--accent);
+    text-transform: uppercase; letter-spacing: 0.5px; font-weight: 600;
+    margin-bottom: 0.5rem;
+  }
+  .thesis-block-text { font-size: 13.5px; color: var(--muted); line-height: 1.65; }
+  .thesis-block-text + .thesis-block-text { margin-top: 0.6rem; }
+  .thesis-block-text strong { color: var(--text); font-weight: 600; }
+
+  .thesis-results-table { width: 100%; border-collapse: collapse; font-size: 13px; margin-top: 0.4rem; }
+  .thesis-results-table th, .thesis-results-table td {
+    text-align: left; padding: 6px 8px; border-bottom: 1px solid var(--border);
+  }
+  .thesis-results-table th { color: var(--muted-2); font-weight: 600; font-size: 11.5px; text-transform: uppercase; letter-spacing: 0.4px; }
+  .thesis-results-table td { color: var(--text); }
+  .thesis-results-table td.num { font-family: var(--mono); }
+
+  .thesis-meta-row {
+    display: flex; flex-wrap: wrap; gap: 0.75rem; margin-top: 1.5rem;
+    padding-top: 1.25rem; border-top: 1px solid var(--border);
+  }
+  .thesis-meta-item {
+    flex: 1; min-width: 220px;
+    background: #fff; border: 1px solid var(--border);
+    border-radius: var(--radius); padding: 12px 14px;
+  }
+  .thesis-meta-label { font-family: var(--mono); font-size: 11px; color: var(--muted-2); text-transform: uppercase; letter-spacing: 0.6px; margin-bottom: 6px; }
+  .thesis-meta-value { font-size: 13px; color: var(--text); line-height: 1.55; }
+
+  @media (max-width: 640px) {
+    .thesis-grid { grid-template-columns: 1fr; }
+  }
+
   /* ===== SKILLS ===== */
   .skills-list { display: flex; flex-direction: column; gap: 1.3rem; }
   .skill-row { display: grid; grid-template-columns: 190px 1fr; gap: 1rem; align-items: baseline; padding: 1rem 0; border-top: 1px solid var(--border); }
@@ -242,6 +293,38 @@
   .skill-group-label { font-size: 13.5px; font-weight: 700; color: var(--text); }
   .skill-chips { display: flex; flex-wrap: wrap; gap: 6px; }
   .chip { font-size: 12.5px; padding: 5px 11px; border-radius: 6px; background: var(--surface); border: 1px solid var(--border); color: var(--text); font-weight: 500; }
+
+  /* ===== SKILL PILLARS ===== */
+  .pillar-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.1rem;
+    margin-bottom: 1.75rem;
+  }
+  .pillar-card {
+    background: var(--surface); border: 1px solid var(--border);
+    border-radius: var(--radius); padding: 1.4rem 1.3rem;
+    display: flex; flex-direction: column; gap: 0.85rem;
+  }
+  .pillar-icon {
+    width: 34px; height: 34px; border-radius: 8px;
+    background: var(--accent-soft); color: var(--accent);
+    display: flex; align-items: center; justify-content: center;
+  }
+  .pillar-icon svg { width: 18px; height: 18px; }
+  .pillar-title { font-size: 14.5px; font-weight: 700; color: var(--text); letter-spacing: -0.1px; }
+  .pillar-desc { font-size: 12.5px; color: var(--muted); line-height: 1.55; min-height: 38px; }
+  .pillar-chips { display: flex; flex-wrap: wrap; gap: 5px; }
+  .pillar-chips .chip { background: #fff; font-size: 12px; padding: 4px 9px; }
+
+  .skills-note {
+    font-size: 12.5px; color: var(--muted-2); font-family: var(--mono);
+    padding-top: 0.25rem;
+  }
+
+  @media (max-width: 720px) {
+    .pillar-grid { grid-template-columns: 1fr; }
+  }
 
   /* ===== CONTACT ===== */
   .contact-box {
@@ -267,6 +350,7 @@
   <ul class="nav-links">
     <li><a href="#about">About</a></li>
     <li><a href="#projects">Projects</a></li>
+    <li><a href="#thesis">Thesis</a></li>
     <li><a href="#skills">Skills</a></li>
     <li><a href="#contact">Contact</a></li>
   </ul>
@@ -441,11 +525,12 @@
 
     <div class="card">
       <div class="card-top"><div class="card-title">Eye-Tracking Gaze Classification</div></div>
-      <p class="card-problem">M.S. thesis. Evaluated 5 feature types and 7 model architectures for gaze-direction classification, targeting assistive interfaces for users with motor impairments.</p>
-      <div class="card-metric">0.94 cross-user accuracy · 12pp above published baseline · manuscript in preparation</div>
+      <p class="card-problem">M.S. thesis. Compared multiple gaze feature representations and model architectures for direction classification, tested for both personalized and cross-user generalization.</p>
+      <div class="card-metric">Manuscript in preparation · results improve on prior published work in the same research area</div>
       <div class="card-tags"><span class="tag">PyTorch</span><span class="tag">scikit-learn</span><span class="tag">ResNet18</span></div>
       <div class="card-links">
-        <a class="card-link primary" href="https://github.com/Lakshmibharathy11/Graduate_Thesis" target="_blank">Code</a>
+        <a class="card-link primary" href="#thesis">Full Breakdown</a>
+        <a class="card-link" href="https://github.com/Lakshmibharathy11/Graduate_Thesis" target="_blank">Code</a>
       </div>
     </div>
 
@@ -469,50 +554,154 @@
 
 <hr class="divider" />
 
+<!-- THESIS -->
+<section id="thesis">
+  <div class="section-eyebrow">M.S. Thesis</div>
+  <div class="section-title">Eye-Tracking Based Direction Control</div>
+  <p class="section-sub">A closer look at the research behind the headline numbers — motivation, methodology, and what the results actually support.</p>
+
+  <div class="thesis-card">
+    <div class="thesis-title-full">Eye-Tracking Based Direction Control Using Machine Learning Technique</div>
+    <div class="thesis-affil">Department of Applied Data Science, San José State University · May 2026</div>
+
+    <p class="thesis-desc">
+      Eye-tracking lets a machine take direction from where someone looks instead of what they type or press — useful when
+      a person's hands aren't a reliable input channel, whether because of a motor impairment or because their hands are
+      already occupied operating something else. Two scenarios motivated the work directly: a wheelchair navigation system,
+      typically used by one person repeatedly, where the system can afford to calibrate to that individual; and a
+      teleoperated drone or robot, which may be handed between operators without time to retrain — a very different
+      reliability problem. I didn't build or test an actual wheelchair or drone; these are the two real-world operating
+      conditions the research was designed around.
+    </p>
+    <p class="thesis-desc">
+      The core challenge is that gaze data is a genuinely messy biological signal — full of micro-movements, blinks, and
+      person-to-person variability — and a model that works well for one person often falls apart on someone else's eyes.
+      Most of the work was in figuring out how to represent that signal in a way that's stable enough to classify reliably,
+      and then testing whether that stability holds up both for one person over time and across different people entirely.
+    </p>
+
+    <div class="thesis-grid">
+
+      <div class="thesis-block">
+        <div class="thesis-block-title">Feature Engineering</div>
+        <p class="thesis-block-text">
+          Explored several different ways of representing raw eye-tracking output — from simple coordinate-based signals
+          to more processed, temporally-aggregated representations, to image-based representations of the eye itself —
+          to see which best captured stable, direction-specific patterns underneath all the natural noise.
+        </p>
+      </div>
+
+      <div class="thesis-block">
+        <div class="thesis-block-title">Data Quality Validation</div>
+        <p class="thesis-block-text">
+          Before any modeling, I validated that recorded labels actually matched physical gaze behavior and that the data
+          collection process hadn't introduced bias toward any particular direction. Feature quality was then checked
+          quantitatively, not just assumed, before deciding which representation to build on.
+        </p>
+      </div>
+
+      <div class="thesis-block">
+        <div class="thesis-block-title">Personalization vs. Generalization</div>
+        <p class="thesis-block-text">
+          Every approach was evaluated two ways: trained and tested on the same individual (personalization), and trained
+          on a group and tested on someone the model had never seen (cross-user generalization). This distinction matters
+          a lot for real deployment — a personal assistive device and a shared, multi-operator system have very different
+          requirements, and I wanted results that spoke honestly to both.
+        </p>
+      </div>
+
+      <div class="thesis-block">
+        <div class="thesis-block-title">Modeling</div>
+        <p class="thesis-block-text">
+          Compared a range of classical machine learning models against deep learning architectures, matched to the type
+          of feature representation being tested, to understand which combinations were best suited to each deployment
+          scenario above.
+        </p>
+      </div>
+
+    </div>
+
+    <div class="thesis-block" style="margin-top: 1rem;">
+      <div class="thesis-block-title">Where Things Landed</div>
+      <p class="thesis-block-text">
+        The strongest-performing representations held up well in both the personalized and cross-user settings, with
+        results that improved meaningfully on prior work in this research area. Since the manuscript is still in
+        preparation for external publication, I'm keeping specific figures out of a public page — happy to walk through
+        the actual numbers directly if it's relevant to a conversation.
+      </p>
+    </div>
+
+    <div class="thesis-meta-row">
+      <div class="thesis-meta-item">
+        <div class="thesis-meta-label">Committee</div>
+        <div class="thesis-meta-value">
+          Dr. Guannan Liu (Advisor) · Dr. Mohammad Masum · Dr. Yue Luo<br/>
+          Dept. of Applied Data Science &amp; Dept. of Industrial &amp; Systems Engineering, SJSU
+        </div>
+      </div>
+      <div class="thesis-meta-item">
+        <div class="thesis-meta-label">Publication Status</div>
+        <div class="thesis-meta-value">
+          Published on ProQuest, currently restricted to SJSU access until 2029. Manuscript in preparation for external
+          publication.
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<hr class="divider" />
+
 <!-- SKILLS -->
 <section id="skills">
   <div class="section-eyebrow">Skills</div>
-  <div class="section-title">Technical Skills</div>
-  <p class="section-sub">Grounded in statistics and causal inference, with applied machine learning and data engineering depth.</p>
-  <div class="skills-list">
-    <div class="skill-row">
-      <div class="skill-group-label">Statistics &amp; Causal Inference</div>
-      <div class="skill-chips">
-        <span class="chip">Bayesian Inference</span><span class="chip">MCMC</span>
-        <span class="chip">Causal Inference</span><span class="chip">Marketing Mix Modeling</span>
-        <span class="chip">A/B Testing</span><span class="chip">Regression</span><span class="chip">Uplift Modeling</span>
+  <div class="section-title">Data Analysis, Data Engineering &amp; AI</div>
+  <p class="section-sub">Roughly how my work breaks down. Most of my depth is in the first group; the other two came from building the projects above.</p>
+
+  <div class="pillar-grid">
+
+    <div class="pillar-card">
+      <div class="pillar-icon">
+        <svg class="icon" viewBox="0 0 24 24"><path d="M3 3v18h18"/><path d="M18 17V9M13 17V5M8 17v-4"/></svg>
+      </div>
+      <div class="pillar-title">Data Analysis &amp; Statistics</div>
+      <p class="pillar-desc">SQL and Python day to day, and the statistics background to know whether a result is real or just noise.</p>
+      <div class="pillar-chips">
+        <span class="chip">SQL</span><span class="chip">Python (Pandas/NumPy)</span>
+        <span class="chip">Statistical Modeling</span><span class="chip">A/B Testing</span>
+        <span class="chip">Causal Inference</span><span class="chip">Bayesian Inference</span>
+        <span class="chip">Power BI</span><span class="chip">Looker Studio</span>
       </div>
     </div>
-    <div class="skill-row">
-      <div class="skill-group-label">Languages &amp; ML</div>
-      <div class="skill-chips">
-        <span class="chip">Python</span><span class="chip">SQL</span>
-        <span class="chip">scikit-learn</span><span class="chip">XGBoost</span>
-        <span class="chip">SHAP</span><span class="chip">Statsmodels</span>
+
+    <div class="pillar-card">
+      <div class="pillar-icon">
+        <svg class="icon" viewBox="0 0 24 24"><path d="M12 2 2 7l10 5 10-5-10-5z"/><path d="m2 17 10 5 10-5"/><path d="m2 12 10 5 10-5"/></svg>
       </div>
-    </div>
-    <div class="skill-row">
-      <div class="skill-group-label">Data Engineering &amp; Cloud</div>
-      <div class="skill-chips">
+      <div class="pillar-title">Data Engineering</div>
+      <p class="pillar-desc">Picked up mostly through coursework and side projects — writing the pipelines that get data from a raw source into something usable, on a schedule.</p>
+      <div class="pillar-chips">
         <span class="chip">Airflow</span><span class="chip">dbt</span>
         <span class="chip">Snowflake</span><span class="chip">PostgreSQL</span>
-        <span class="chip">AWS</span><span class="chip">Docker</span>
+        <span class="chip">ETL / ELT Pipelines</span><span class="chip">Docker</span>
+        <span class="chip">AWS (EC2, S3, ECS)</span>
       </div>
     </div>
-    <div class="skill-row">
-      <div class="skill-group-label">Visualization &amp; BI</div>
-      <div class="skill-chips">
-        <span class="chip">Power BI</span><span class="chip">Looker Studio</span>
-        <span class="chip">Streamlit</span><span class="chip">Matplotlib</span>
+
+    <div class="pillar-card">
+      <div class="pillar-icon">
+        <svg class="icon" viewBox="0 0 24 24"><circle cx="12" cy="12" r="3"/><path d="M12 3v3M12 18v3M4.2 4.2l2.1 2.1M17.7 17.7l2.1 2.1M3 12h3M18 12h3M4.2 19.8l2.1-2.1M17.7 6.3l2.1-2.1"/></svg>
+      </div>
+      <div class="pillar-title">AI &amp; ML Engineering</div>
+      <p class="pillar-desc">Classic ML (XGBoost, scikit-learn) is the more established part; LLM agents and RAG are newer for me, learned by building and breaking things.</p>
+      <div class="pillar-chips">
+        <span class="chip">scikit-learn</span><span class="chip">XGBoost</span>
+        <span class="chip">PyTorch</span><span class="chip">LangGraph</span>
+        <span class="chip">RAG</span><span class="chip">LLM Evaluation</span>
+        <span class="chip">FastAPI</span>
       </div>
     </div>
-    <div class="skill-row">
-      <div class="skill-group-label">Applied AI Tooling</div>
-      <div class="skill-chips">
-        <span class="chip">LangGraph</span><span class="chip">RAG</span>
-        <span class="chip">Prompt Engineering</span><span class="chip">LLM Evaluation</span>
-      </div>
-    </div>
+
   </div>
 </section>
 
