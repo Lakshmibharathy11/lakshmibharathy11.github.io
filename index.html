@@ -1,0 +1,514 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Lakshmi Bharathy Kumar — Data Scientist</title>
+<meta name="description" content="Data scientist with a professional foundation in marketing analytics and an M.S. in Applied Data Intelligence from San José State University." />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600&family=Source+Serif+4:opsz,wght@8..60,500;8..60,600;8..60,700&display=swap" rel="stylesheet" />
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --paper:  #FFFFFF;
+    --soft:   #F4F6F8;
+    --line:   #E1E5EA;
+    --ink:    #17212B;
+    --muted:  #56616F;
+    --faint:  #8B95A2;
+    --accent: #1D5C8C;
+    --accent-soft: #E8F0F7;
+    --serif: 'Source Serif 4', Georgia, 'Times New Roman', serif;
+    --sans:  'IBM Plex Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    --maxw: 900px;
+  }
+
+  html { scroll-behavior: smooth; }
+  @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
+
+  body {
+    background: var(--paper);
+    color: var(--ink);
+    font-family: var(--sans);
+    font-size: 16px;
+    line-height: 1.65;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  a { color: var(--accent); text-underline-offset: 3px; }
+  a:focus-visible, .btn:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; border-radius: 4px; }
+
+  .wrap { max-width: var(--maxw); margin: 0 auto; padding: 0 clamp(1.25rem, 5vw, 2.5rem); }
+
+  svg.icon { width: 16px; height: 16px; flex-shrink: 0; }
+
+  /* Nav */
+  nav {
+    position: sticky; top: 0; z-index: 10;
+    background: rgba(255,255,255,0.95);
+    backdrop-filter: blur(8px);
+    border-bottom: 1px solid var(--line);
+  }
+  nav .wrap { display: flex; align-items: center; justify-content: space-between; height: 58px; }
+  .nav-name { font-family: var(--serif); font-weight: 600; font-size: 17px; color: var(--ink); text-decoration: none; }
+  .nav-links { display: flex; gap: 1.6rem; list-style: none; }
+  .nav-links a { color: var(--muted); text-decoration: none; font-size: 14px; font-weight: 500; }
+  .nav-links a:hover { color: var(--ink); }
+
+  /* Hero */
+  .hero { padding: clamp(3.5rem, 8vw, 5.5rem) 0 3rem; }
+  .hero h1 {
+    font-family: var(--serif); font-weight: 700;
+    font-size: clamp(2.3rem, 5.5vw, 3.2rem); line-height: 1.08; letter-spacing: -0.5px;
+    margin-bottom: 0.9rem;
+  }
+  .hero .role { font-size: clamp(1.05rem, 2.2vw, 1.2rem); font-weight: 500; color: var(--accent); margin-bottom: 1.25rem; }
+  .hero .lede { color: var(--muted); max-width: 640px; font-size: 16.5px; line-height: 1.75; }
+  .hero .lede + .lede { margin-top: 0.9rem; }
+
+  /* Career path: the one visual moment on the page */
+  .path {
+    list-style: none; margin: 2.5rem 0 2.25rem;
+    display: grid; grid-template-columns: repeat(3, 1fr);
+    position: relative;
+  }
+  .path::before {
+    content: ''; position: absolute; left: 7px; right: 0; top: 7px;
+    height: 2px; background: linear-gradient(to right, var(--line), var(--accent));
+  }
+  .path li { position: relative; padding: 1.75rem 1.25rem 0 0; }
+  .path li::before {
+    content: ''; position: absolute; left: 0; top: 0;
+    width: 16px; height: 16px; border-radius: 50%;
+    background: var(--paper); border: 2px solid var(--faint);
+  }
+  .path li.now::before { border-color: var(--accent); background: var(--accent); }
+  .path .when { font-size: 13px; color: var(--faint); font-weight: 500; }
+  .path .what { font-weight: 600; font-size: 15px; line-height: 1.4; margin: 0.15rem 0 0.2rem; }
+  .path .where { font-size: 13.5px; color: var(--muted); }
+
+  .facts { display: flex; flex-wrap: wrap; gap: 0.5rem 1.5rem; color: var(--muted); font-size: 14px; margin-bottom: 1.75rem; }
+  .facts span { display: inline-flex; align-items: center; gap: 6px; }
+  .facts svg { color: var(--accent); }
+
+  .actions { display: flex; flex-wrap: wrap; gap: 0.7rem; }
+  .btn {
+    display: inline-flex; align-items: center; gap: 8px;
+    padding: 10px 18px; border-radius: 6px;
+    font-size: 14px; font-weight: 600; text-decoration: none;
+    border: 1px solid var(--line); color: var(--ink); background: var(--paper);
+  }
+  .btn:hover { border-color: var(--faint); }
+  .btn.primary { background: var(--ink); border-color: var(--ink); color: #fff; }
+  .btn.primary:hover { background: #2B3845; }
+
+  /* Sections */
+  section { padding: 3.75rem 0; border-top: 1px solid var(--line); }
+  h2 {
+    font-family: var(--serif); font-weight: 600;
+    font-size: clamp(1.55rem, 3.2vw, 1.9rem); letter-spacing: -0.3px;
+    margin-bottom: 0.5rem;
+  }
+  .intro { color: var(--muted); max-width: 620px; margin-bottom: 2.25rem; font-size: 15.5px; }
+
+  /* Experience */
+  .job-head { display: flex; flex-wrap: wrap; justify-content: space-between; align-items: baseline; gap: 0.25rem 1rem; margin-bottom: 0.3rem; }
+  .job-title { font-size: 18px; font-weight: 600; }
+  .job-dates { font-size: 14px; color: var(--muted); }
+  .job-org { color: var(--muted); font-size: 15px; margin-bottom: 1.25rem; }
+  .job-list { list-style: none; display: grid; gap: 0.85rem; max-width: 720px; }
+  .job-list li { position: relative; padding-left: 1.25rem; color: var(--ink); font-size: 15.5px; }
+  .job-list li::before {
+    content: ''; position: absolute; left: 0; top: 0.68em;
+    width: 6px; height: 6px; border-radius: 50%; background: var(--accent);
+  }
+  .job-list strong { font-weight: 600; }
+
+  /* Projects */
+  .group { margin-top: 2.75rem; }
+  .group:first-of-type { margin-top: 0; }
+  .group-head { display: flex; align-items: baseline; gap: 0.75rem; margin-bottom: 0.35rem; }
+  .group h3 { font-family: var(--serif); font-size: 1.3rem; font-weight: 600; }
+  .group .count { font-size: 13px; color: var(--faint); }
+  .group-sub { color: var(--muted); font-size: 14.5px; margin-bottom: 1.25rem; max-width: 620px; }
+
+  .projects { display: grid; grid-template-columns: 1fr 1fr; gap: 0 2.25rem; }
+  .project { padding: 1.35rem 0 1.5rem; border-top: 1px solid var(--line); display: flex; flex-direction: column; gap: 0.55rem; }
+  .project h4 { font-size: 16px; font-weight: 600; line-height: 1.35; }
+  .project p { font-size: 14.5px; color: var(--muted); line-height: 1.65; }
+  .result { font-size: 14px; color: var(--ink); padding: 0.55rem 0.8rem; background: var(--soft); border-left: 3px solid var(--accent); border-radius: 0 4px 4px 0; }
+  .tools { font-size: 13px; color: var(--faint); }
+  .links { display: flex; flex-wrap: wrap; gap: 1rem; font-size: 14px; font-weight: 600; margin-top: auto; padding-top: 0.2rem; }
+  .links a { text-decoration: none; }
+  .links a:hover { text-decoration: underline; }
+  .links .note { color: var(--faint); font-weight: 500; }
+
+  .featured { grid-column: 1 / -1; }
+  .featured p { max-width: 700px; }
+
+  /* Thesis */
+  .thesis-title { font-family: var(--serif); font-size: 1.3rem; font-weight: 600; line-height: 1.35; margin-bottom: 0.4rem; max-width: 680px; }
+  .thesis-meta { color: var(--muted); font-size: 14.5px; margin-bottom: 1.5rem; }
+  .thesis-body p { color: var(--muted); max-width: 680px; font-size: 15.5px; }
+  .thesis-body p + p { margin-top: 0.9rem; }
+
+  .method { list-style: none; counter-reset: step; display: grid; grid-template-columns: repeat(5, 1fr); gap: 1rem; margin: 2rem 0; }
+  .method li { counter-increment: step; border-top: 2px solid var(--accent); padding-top: 0.75rem; }
+  .method li::before { content: counter(step); font-family: var(--serif); font-weight: 600; color: var(--accent); font-size: 1.1rem; }
+  .method .step { display: block; font-weight: 600; font-size: 14.5px; margin: 0.1rem 0 0.25rem; }
+  .method .detail { font-size: 13.5px; color: var(--muted); line-height: 1.55; }
+
+  .uses { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin-bottom: 1.75rem; }
+  .use { background: var(--soft); border-radius: 8px; padding: 1.1rem 1.25rem; }
+  .use h4 { font-size: 15px; font-weight: 600; margin-bottom: 0.3rem; }
+  .use p { font-size: 14px; color: var(--muted); }
+
+  .pub { display: flex; flex-wrap: wrap; gap: 0.5rem 1.5rem; font-size: 14.5px; align-items: baseline; }
+  .pub .label { color: var(--muted); }
+
+  /* Skills */
+  .skills { display: grid; gap: 0; }
+  .skill-row { display: grid; grid-template-columns: 200px 1fr; gap: 1rem; padding: 1rem 0; border-top: 1px solid var(--line); }
+  .skill-row:first-child { border-top: none; padding-top: 0; }
+  .skill-row dt { font-weight: 600; font-size: 15px; }
+  .skill-row dd { color: var(--muted); font-size: 15px; }
+
+  /* Contact */
+  .contact p { color: var(--muted); max-width: 620px; margin-bottom: 1.5rem; }
+
+  footer { padding: 2rem 0 2.5rem; border-top: 1px solid var(--line); color: var(--faint); font-size: 13px; }
+
+  @media (max-width: 760px) {
+    .nav-links { display: none; }
+    .path { grid-template-columns: 1fr; margin-left: 0; }
+    .path::before { left: 7px; right: auto; top: 0; bottom: 0; width: 2px; height: auto; background: linear-gradient(to bottom, var(--line), var(--accent)); }
+    .path li { padding: 0 0 1.5rem 2rem; }
+    .projects { grid-template-columns: 1fr; }
+    .method { grid-template-columns: 1fr; }
+    .uses { grid-template-columns: 1fr; }
+    .skill-row { grid-template-columns: 1fr; gap: 0.25rem; }
+  }
+</style>
+</head>
+<body>
+
+<nav aria-label="Main">
+  <div class="wrap">
+    <a class="nav-name" href="#top">Lakshmi Bharathy Kumar</a>
+    <ul class="nav-links">
+      <li><a href="#experience">Experience</a></li>
+      <li><a href="#projects">Projects</a></li>
+      <li><a href="#thesis">Thesis</a></li>
+      <li><a href="#skills">Skills</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </div>
+</nav>
+
+<main id="top">
+
+<!-- HERO -->
+<header class="wrap hero">
+  <h1>Lakshmi Bharathy Kumar</h1>
+  <p class="role">Data Scientist, marketing and growth analytics</p>
+  <p class="lede">
+    I started my career in analytics at a digital marketing startup, where I owned web analytics, SEO,
+    KPI reporting, and paid campaigns, and used the numbers to decide what to change on client websites.
+  </p>
+  <p class="lede">
+    My M.S. in Applied Data Intelligence at San José State University added the statistics, causal inference,
+    and machine learning to go further: from reporting what happened to explaining why, and deciding what to do next.
+  </p>
+
+  <ol class="path" aria-label="Career path">
+    <li>
+      <div class="when">2014</div>
+      <div class="what">B.E., Electronics and Communication Engineering</div>
+      <div class="where">Saranathan College of Engineering</div>
+    </li>
+    <li>
+      <div class="when">2021 – 2022</div>
+      <div class="what">Digital Marketing Specialist</div>
+      <div class="where">RepuNEXT</div>
+    </li>
+    <li class="now">
+      <div class="when">May 2026</div>
+      <div class="what">M.S., Applied Data Intelligence</div>
+      <div class="where">San José State University</div>
+    </li>
+  </ol>
+
+  <div class="facts">
+    <span>
+      <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 21c-4-4-7-7.5-7-11a7 7 0 0 1 14 0c0 3.5-3 7-7 11z"/><circle cx="12" cy="10" r="2.5"/></svg>
+      San Jose, CA, open to Bay Area roles
+    </span>
+    <span>
+      <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3l7 3v6c0 4.5-3 8-7 9-4-1-7-4.5-7-9V6l7-3z"/><path d="m9 12 2 2 4-4"/></svg>
+      Authorized to work in the U.S. without sponsorship
+    </span>
+  </div>
+
+  <div class="actions">
+    <a class="btn primary" href="https://linkedin.com/in/lakshmi-bharathy-kumar" target="_blank" rel="noopener">
+      <svg class="icon" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M4.98 3.5C4.98 5 3.87 6 2.5 6S0 5 0 3.5 1.13 1 2.5 1s2.48 1 2.48 2.5zM.5 8.5h4V23h-4V8.5zM8.5 8.5h3.8v2h.06c.53-1 1.83-2.06 3.77-2.06 4.03 0 4.77 2.65 4.77 6.1V23h-4v-6.7c0-1.6-.03-3.66-2.23-3.66-2.23 0-2.57 1.75-2.57 3.55V23h-4V8.5z"/></svg>
+      LinkedIn
+    </a>
+    <a class="btn" href="https://github.com/Lakshmibharathy11" target="_blank" rel="noopener">
+      <svg class="icon" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 .3a12 12 0 0 0-3.8 23.4c.6.1.8-.3.8-.6v-2.2c-3.3.7-4-1.6-4-1.6-.6-1.4-1.4-1.8-1.4-1.8-1.1-.8.1-.7.1-.7 1.2.1 1.9 1.3 1.9 1.3 1.1 1.9 2.9 1.3 3.6 1 .1-.8.4-1.3.8-1.6-2.7-.3-5.5-1.3-5.5-5.9 0-1.3.5-2.4 1.3-3.2-.1-.3-.6-1.6.1-3.2 0 0 1-.3 3.4 1.2a11.5 11.5 0 0 1 6 0c2.3-1.5 3.3-1.2 3.3-1.2.7 1.6.2 2.9.1 3.2.8.8 1.3 1.9 1.3 3.2 0 4.6-2.8 5.6-5.5 5.9.4.4.8 1.1.8 2.2v3.3c0 .3.2.7.8.6A12 12 0 0 0 12 .3z"/></svg>
+      GitHub
+    </a>
+    <a class="btn" href="mailto:lakshmibharathyk@gmail.com">
+      <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 5h16v14H4z"/><path d="m4 7 8 6 8-6"/></svg>
+      Email
+    </a>
+  </div>
+</header>
+
+<!-- EXPERIENCE -->
+<section id="experience">
+  <div class="wrap">
+    <h2>Experience</h2>
+    <p class="intro">At an early-stage startup, I covered analytics, SEO, paid search, and content, often starting from a loosely defined problem and working out what to measure.</p>
+
+    <div class="job-head">
+      <div class="job-title">Digital Marketing Specialist</div>
+      <div class="job-dates">June 2021 – December 2022</div>
+    </div>
+    <div class="job-org">RepuNEXT</div>
+
+    <ul class="job-list">
+      <li><strong>Web analytics and SEO.</strong> Used Google Analytics and SEMrush to track traffic and keyword performance, diagnose funnel drop-off, and rebuild SEO targeting, contributing to a 25% increase in organic traffic.</li>
+      <li><strong>KPIs and funnel analysis.</strong> Defined and tracked KPIs for traffic, engagement, and conversion, and used funnel analysis to find where visitors dropped off.</li>
+      <li><strong>Metric-driven website optimization.</strong> Prioritized website changes based on what the data showed, then measured whether each change moved the relevant KPI.</li>
+      <li><strong>Reporting automation.</strong> Built reporting in Google Sheets that merged data from multiple marketing sources into a single view, replacing manual compilation.</li>
+      <li><strong>Google Ads and A/B testing.</strong> Set up and managed a Google Ads campaign for a client account, running A/B tests and adjusting budget based on results.</li>
+      <li><strong>Social and content.</strong> Analyzed post-level engagement on client social media pages and wrote copy and content for them.</li>
+    </ul>
+  </div>
+</section>
+
+<!-- PROJECTS -->
+<section id="projects">
+  <div class="wrap">
+    <h2>Projects</h2>
+    <p class="intro">Grouped by the kind of problem they solve. More work, including smaller experiments, is on GitHub.</p>
+
+    <!-- Marketing & Growth -->
+    <div class="group">
+      <div class="group-head"><h3>Marketing and growth analytics</h3><span class="count">3 projects</span></div>
+      <p class="group-sub">Measuring what drives performance, which customers are worth acting on, and where spend should go.</p>
+      <div class="projects">
+
+        <article class="project featured">
+          <h4>Marketing mix model and budget allocator</h4>
+          <p>Bayesian MMM built with Google Meridian on its simulated demo dataset: 156 weeks of geo-level data across 5 channels. VIF-informed priors handle collinearity between channels, and a constrained optimizer recommends how to reallocate budget. Results are delivered through a Looker Studio dashboard.</p>
+          <div class="result">$4.8M recommended reallocation, +0.5% projected conversion lift, and mROI below 1.0 confirming saturation on the weakest channel</div>
+          <div class="tools">Python, Google Meridian, Bayesian inference, Looker Studio</div>
+          <div class="links">
+            <a href="https://github.com/Lakshmibharathy11/Marketing-Mix-Modeling-for-Multichannel-Budget-Allocation" target="_blank" rel="noopener">View code</a>
+            <a href="https://datastudio.google.com/reporting/4b8a253d-cede-481e-bd2c-54a4517b0cd9" target="_blank" rel="noopener">Open dashboard</a>
+          </div>
+        </article>
+
+        <article class="project">
+          <h4>Incrementality and uplift modeling</h4>
+          <p>T-learner and X-learner uplift models on the Criteo dataset (13.9M+ users) to separate conversions caused by ads from conversions that would have happened anyway. Evaluated with Qini curves and AUUC.</p>
+          <div class="result">Top 30% of users by predicted uplift capture 88.7% of incremental responders, projecting 15.6x marketing ROI</div>
+          <div class="tools">Python, causal inference, uplift modeling</div>
+          <div class="links">
+            <a href="https://github.com/Lakshmibharathy11/Causal-Uplift-Budget-Optimizer" target="_blank" rel="noopener">View code</a>
+          </div>
+        </article>
+
+        <article class="project">
+          <h4>Customer retention priority dashboard</h4>
+          <p>RFM segmentation, customer lifetime value, and churn risk for about 5,878 customers from the Online Retail II dataset. Found and removed a Recency leakage issue before finalizing the logistic regression churn model; Random Forest was tested and underperformed.</p>
+          <div class="result">Top 50 customers hold £9.26M, 24.7% of projected value; churn model reaches 69.6% accuracy after the leakage fix</div>
+          <div class="tools">Python, RFM, CLV, logistic regression</div>
+          <div class="links">
+            <a href="https://github.com/Lakshmibharathy11/Retention-Priority-Dashboard-RFM-CLV-and-Churn-Risk" target="_blank" rel="noopener">View code</a>
+          </div>
+        </article>
+
+      </div>
+    </div>
+
+    <!-- Data & Analytics -->
+    <div class="group">
+      <div class="group-head"><h3>Data and analytics</h3><span class="count">4 projects</span></div>
+      <p class="group-sub">Getting data into shape and turning it into answers: pipelines, warehouses, and statistical analysis.</p>
+      <div class="projects">
+
+        <article class="project">
+          <h4>Law enforcement data ETL pipeline</h4>
+          <p>Solo-built pipeline that orchestrates ingestion with Airflow, loads into Snowflake, and models the warehouse with dbt, all containerized with Docker. Includes automated data tests and historical snapshots to track how records change over time.</p>
+          <div class="tools">Airflow, dbt, Snowflake, Docker, SQL</div>
+          <div class="links">
+            <!-- TODO: replace with the repo URL -->
+            <a href="https://github.com/Lakshmibharathy11" target="_blank" rel="noopener">View on GitHub</a>
+          </div>
+        </article>
+
+        <article class="project">
+          <h4>Tesla stock sentiment pipeline</h4>
+          <p>Group project for DATA 226 at SJSU combining stock data with tweet sentiment. My part: VADER sentiment scoring, Snowflake ELT, SQL regression, Airflow scheduling, and dbt modeling.</p>
+          <div class="result">R² = 0.916; next-day price most influenced by lagged 3- and 7-day sentiment averages</div>
+          <div class="tools">Airflow, Snowflake, dbt, SQL, Python</div>
+          <div class="links">
+            <a href="https://github.com/Lakshmibharathy11/Tesla_stock_sentiment_analysis" target="_blank" rel="noopener">View code</a>
+          </div>
+        </article>
+
+        <article class="project">
+          <h4>Corporate bankruptcy early warning system</h4>
+          <p>47 financial ratios across 3,722 companies, with temporal cross-validation enforcing a strict 2-year prediction horizon to prevent data leakage.</p>
+          <div class="result">ROC-AUC 0.84 and 76% recall at 14% false positive rate, outperforming the Altman Z-Score (0.71)</div>
+          <div class="tools">Python, XGBoost, statsmodels, temporal cross-validation</div>
+          <div class="links">
+            <!-- TODO: replace with the repo URL -->
+            <a href="https://github.com/Lakshmibharathy11" target="_blank" rel="noopener">View on GitHub</a>
+          </div>
+        </article>
+
+        <article class="project">
+          <h4>Price elasticity and SKU pricing strategy</h4>
+          <p>Log-log regression across 5,242 SKUs and 131,706 transactions to estimate price elasticity of demand for retail pricing decisions.</p>
+          <div class="result">10 statistically significant SKUs (p &lt; 0.05, R² &gt; 0.40); top SKU elasticity of −1.39</div>
+          <div class="tools">Python, statsmodels, pandas, Power BI</div>
+          <div class="links">
+            <!-- TODO: replace with the repo URL -->
+            <a href="https://github.com/Lakshmibharathy11" target="_blank" rel="noopener">View on GitHub</a>
+          </div>
+        </article>
+
+        <!-- TODO: salary prediction dashboard, pending details -->
+
+      </div>
+    </div>
+
+    <!-- AI & Automation -->
+    <div class="group">
+      <div class="group-head"><h3>AI and automation</h3><span class="count">4 projects</span></div>
+      <p class="group-sub">Automated workflows and LLM systems, built with evaluation in mind.</p>
+      <div class="projects">
+
+        <article class="project">
+          <h4>Automated job monitoring system</h4>
+          <p>Runs on a scheduled GitHub Actions workflow: pulls new roles from the YC Work at a Startup and Greenhouse APIs, filters by location and seniority, scores each against a skill profile, and sends ranked email digests and WhatsApp alerts. SQLite handles deduplication, and a local Streamlit dashboard tracks demand trends.</p>
+          <div class="tools">Python, GitHub Actions, SQLite, Twilio, Streamlit</div>
+          <div class="links"><span class="note">Private repository</span></div>
+        </article>
+
+        <article class="project">
+          <h4>AI customer support triage agent</h4>
+          <p>LangGraph agent that retrieves answers from a synthetic knowledge base (FAISS with all-MiniLM-L6-v2 embeddings) using Groq-hosted models. A custom evaluation harness scores each answer, and a human-in-the-loop gate catches responses with low faithfulness.</p>
+          <div class="result">Faithfulness 0.81 and relevance 0.94 (LLM-as-judge) at $0.00139 per ticket across 45 tickets</div>
+          <div class="tools">LangGraph, RAG, FAISS, Groq, LLM evaluation</div>
+          <div class="links">
+            <!-- TODO: replace with the repo URL -->
+            <a href="https://github.com/Lakshmibharathy11" target="_blank" rel="noopener">View on GitHub</a>
+          </div>
+        </article>
+
+        <article class="project">
+          <h4>Multimodal multi-agent image editing pipeline</h4>
+          <p>LangGraph orchestrates three models: LLaVA interprets the image, InstructPix2Pix makes the edit, and OpenCLIP evaluates the result.</p>
+          <div class="result">Average rubric score 4.03/5 and CLIP image similarity 0.938 across 12 workflow runs</div>
+          <div class="tools">LangGraph, LLaVA, InstructPix2Pix, OpenCLIP</div>
+          <div class="links">
+            <!-- TODO: replace with the repo URL -->
+            <a href="https://github.com/Lakshmibharathy11" target="_blank" rel="noopener">View on GitHub</a>
+          </div>
+        </article>
+
+        <article class="project">
+          <h4>Plate Planner</h4>
+          <p>Recipe recommendation and ingredient substitution API. A Neo4j graph stores ingredient relationships, and SentenceTransformers with FAISS power semantic search.</p>
+          <div class="tools">FastAPI, Neo4j, SentenceTransformers, FAISS, Docker Compose</div>
+          <div class="links">
+            <!-- TODO: replace with the repo URL -->
+            <a href="https://github.com/Lakshmibharathy11" target="_blank" rel="noopener">View on GitHub</a>
+          </div>
+        </article>
+
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- THESIS -->
+<section id="thesis">
+  <div class="wrap">
+    <h2>Graduate thesis</h2>
+    <div class="thesis-title">Eye-Tracking Based Direction Control Using Machine Learning Technique</div>
+    <div class="thesis-meta">M.S. thesis, San José State University, May 2026</div>
+
+    <div class="thesis-body">
+      <p>Eye-tracking lets a machine take direction from where a person looks, which helps when their hands aren't a reliable input. Gaze data is a noisy biological signal, full of micro-movements, blinks, and person-to-person differences, so the core problem was finding a representation stable enough to classify reliably, both for one person and across people.</p>
+    </div>
+
+    <ol class="method" aria-label="Research approach">
+      <li><span class="step">Data collection</span><span class="detail">Lab-collected eye-tracking recordings of directional gaze</span></li>
+      <li><span class="step">Validation</span><span class="detail">Checked labels against physical gaze behavior and for directional bias</span></li>
+      <li><span class="step">Feature engineering</span><span class="detail">Coordinate, time-aggregated, and eye-image representations</span></li>
+      <li><span class="step">Modeling</span><span class="detail">Classical ML classifiers compared with fine-tuned CNNs</span></li>
+      <li><span class="step">Evaluation</span><span class="detail">Personalized and cross-user generalization testing</span></li>
+    </ol>
+
+    <div class="uses">
+      <div class="use">
+        <h4>Personal assistive devices</h4>
+        <p>Wheelchair navigation for one repeat user, where the model can be calibrated to that individual.</p>
+      </div>
+      <div class="use">
+        <h4>Shared control systems</h4>
+        <p>Teleoperated drones or robots handed between operators, where the model must work for someone it has never seen.</p>
+      </div>
+    </div>
+
+    <div class="pub">
+      <span class="label">DOI</span>
+      <a href="https://doi.org/10.31979/etd.h3rd-h8n2" target="_blank" rel="noopener">10.31979/etd.h3rd-h8n2</a>
+      <a href="https://github.com/Lakshmibharathy11/Graduate_Thesis" target="_blank" rel="noopener">View code</a>
+    </div>
+  </div>
+</section>
+
+<!-- SKILLS -->
+<section id="skills">
+  <div class="wrap">
+    <h2>Skills</h2>
+    <p class="intro">Most of my depth is in analysis and statistics; the engineering and AI work came from building the projects above.</p>
+    <dl class="skills">
+      <div class="skill-row"><dt>Analysis and statistics</dt><dd>SQL, Python (pandas, NumPy), statistical modeling, A/B testing, causal inference, Bayesian modeling</dd></div>
+      <div class="skill-row"><dt>BI and marketing analytics</dt><dd>Looker Studio, Power BI, Google Analytics, SEMrush, Google Ads, Google Sheets</dd></div>
+      <div class="skill-row"><dt>Data engineering</dt><dd>Airflow, dbt, Snowflake, PostgreSQL, Docker, GitHub Actions, AWS (EC2, S3, ECS)</dd></div>
+      <div class="skill-row"><dt>Machine learning and AI</dt><dd>scikit-learn, XGBoost, PyTorch, LangGraph, RAG, LLM evaluation, FastAPI</dd></div>
+    </dl>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact" class="contact">
+  <div class="wrap">
+    <h2>Get in touch</h2>
+    <p>I'm looking for Data Scientist, Data Analyst, and Analytics Engineer roles in the Bay Area, especially in marketing and growth analytics.</p>
+    <div class="actions">
+      <a class="btn primary" href="mailto:lakshmibharathyk@gmail.com">Email me</a>
+      <a class="btn" href="https://linkedin.com/in/lakshmi-bharathy-kumar" target="_blank" rel="noopener">LinkedIn</a>
+      <a class="btn" href="https://github.com/Lakshmibharathy11" target="_blank" rel="noopener">GitHub</a>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<footer>
+  <div class="wrap">Lakshmi Bharathy Kumar, San Jose, CA, 2026</div>
+</footer>
+
+</body>
+</html>
