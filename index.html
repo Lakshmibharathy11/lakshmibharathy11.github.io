@@ -1,514 +1,704 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>Lakshmi Bharathy Kumar — Data Scientist</title>
-<meta name="description" content="Data scientist with a professional foundation in marketing analytics and an M.S. in Applied Data Intelligence from San José State University." />
-<link rel="preconnect" href="https://fonts.googleapis.com" />
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600&family=Source+Serif+4:opsz,wght@8..60,500;8..60,600;8..60,700&display=swap" rel="stylesheet" />
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Lakshmi Bharathy Kumar — Associate Data Scientist, Decision Science &amp; Growth Analytics</title>
+<meta name="description" content="Associate Data Scientist focused on decision science, incrementality, marketing mix modeling, and customer intelligence. M.S. Applied Data Intelligence, San José State University. Bay Area / Remote.">
+<meta name="author" content="Lakshmi Bharathy Kumar">
+<meta property="og:title" content="Lakshmi Bharathy Kumar — Decision Science &amp; Growth Analytics">
+<meta property="og:description" content="Incrementality, Bayesian MMM, customer intelligence, and agentic analytics. Associate Data Scientist, Bay Area / Remote.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://lakshmibharathy11.github.io/">
+<meta name="theme-color" content="#0f1b2d">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%230f1b2d'/%3E%3Ctext x='50%25' y='54%25' text-anchor='middle' dominant-baseline='middle' font-family='Georgia,serif' font-size='30' fill='%23f5c46b'%3ELK%3C/text%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600;9..144,700&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@500&display=swap" rel="stylesheet">
+
 <style>
-  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-
-  :root {
-    --paper:  #FFFFFF;
-    --soft:   #F4F6F8;
-    --line:   #E1E5EA;
-    --ink:    #17212B;
-    --muted:  #56616F;
-    --faint:  #8B95A2;
-    --accent: #1D5C8C;
-    --accent-soft: #E8F0F7;
-    --serif: 'Source Serif 4', Georgia, 'Times New Roman', serif;
-    --sans:  'IBM Plex Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
-    --maxw: 900px;
+/* ============ THEME TOKENS ============ */
+:root{
+  --bg:#f7f5f0;
+  --bg-alt:#efece4;
+  --surface:#ffffff;
+  --ink:#0f1b2d;
+  --ink-2:#3a4658;
+  --muted:#6b7586;
+  --line:#e2ddd1;
+  --accent:#0e6b5c;        /* deep teal */
+  --accent-soft:#e1f0ec;
+  --gold:#b7791f;
+  --gold-soft:#fbf1dc;
+  --hero-bg:#0f1b2d;
+  --hero-ink:#f4f1ea;
+  --hero-muted:#a9b4c4;
+  --shadow:0 1px 2px rgba(15,27,45,.04),0 8px 24px rgba(15,27,45,.06);
+  --shadow-lg:0 2px 4px rgba(15,27,45,.05),0 20px 48px rgba(15,27,45,.10);
+  --radius:16px;
+  --serif:"Fraunces",Georgia,serif;
+  --sans:"Inter",system-ui,-apple-system,"Segoe UI",sans-serif;
+  --mono:"JetBrains Mono",ui-monospace,monospace;
+}
+@media (prefers-color-scheme:dark){
+  :root:not([data-theme="light"]){
+    --bg:#0b1320;--bg-alt:#0f1928;--surface:#131f31;--ink:#eef1f5;--ink-2:#c3cbd7;--muted:#8d98a9;
+    --line:#223149;--accent:#4cc3a8;--accent-soft:#12302c;--gold:#f0b85a;--gold-soft:#2c2414;
+    --hero-bg:#070d17;--shadow:0 1px 2px rgba(0,0,0,.3),0 8px 24px rgba(0,0,0,.3);--shadow-lg:0 20px 48px rgba(0,0,0,.45);
   }
+}
+:root[data-theme="dark"]{
+  --bg:#0b1320;--bg-alt:#0f1928;--surface:#131f31;--ink:#eef1f5;--ink-2:#c3cbd7;--muted:#8d98a9;
+  --line:#223149;--accent:#4cc3a8;--accent-soft:#12302c;--gold:#f0b85a;--gold-soft:#2c2414;
+  --hero-bg:#070d17;--shadow:0 1px 2px rgba(0,0,0,.3),0 8px 24px rgba(0,0,0,.3);--shadow-lg:0 20px 48px rgba(0,0,0,.45);
+}
 
-  html { scroll-behavior: smooth; }
-  @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
+/* ============ BASE ============ */
+*,*::before,*::after{box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:80px}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--sans);font-size:16px;line-height:1.65;-webkit-font-smoothing:antialiased}
+img{max-width:100%}
+a{color:var(--accent);text-decoration:none}
+a:hover{text-decoration:underline;text-underline-offset:3px}
+h1,h2,h3,h4{font-family:var(--serif);line-height:1.2;margin:0;color:var(--ink);font-weight:600;letter-spacing:-.01em}
+p{margin:0 0 1em}
+.wrap{max-width:1120px;margin:0 auto;padding:0 24px}
+@media (max-width:600px){.wrap{padding:0 16px}}
+.sr-only{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)}
+.skip{position:absolute;left:-999px;top:8px;background:var(--ink);color:var(--bg);padding:8px 14px;border-radius:8px;z-index:100}
+.skip:focus{left:8px}
+:focus-visible{outline:2px solid var(--accent);outline-offset:3px;border-radius:4px}
 
-  body {
-    background: var(--paper);
-    color: var(--ink);
-    font-family: var(--sans);
-    font-size: 16px;
-    line-height: 1.65;
-    -webkit-font-smoothing: antialiased;
-  }
+/* ============ NAV ============ */
+.nav{position:sticky;top:0;z-index:50;background:color-mix(in srgb,var(--bg) 82%,transparent);backdrop-filter:saturate(160%) blur(12px);-webkit-backdrop-filter:saturate(160%) blur(12px);border-bottom:1px solid transparent;transition:border-color .2s}
+.nav.scrolled{border-bottom-color:var(--line)}
+.nav-inner{display:flex;align-items:center;justify-content:space-between;height:64px}
+.brand{font-family:var(--serif);font-weight:600;font-size:1.1rem;color:var(--ink)}
+.brand:hover{text-decoration:none}
+.brand span{color:var(--gold)}
+.nav-links{display:flex;align-items:center;gap:6px;list-style:none;margin:0;padding:0}
+.nav-links a{color:var(--ink-2);font-size:.92rem;font-weight:500;padding:8px 12px;border-radius:8px}
+.nav-links a:hover{background:var(--bg-alt);text-decoration:none;color:var(--ink)}
+.theme-btn{border:1px solid var(--line);background:var(--surface);color:var(--ink);width:36px;height:36px;border-radius:10px;cursor:pointer;display:grid;place-items:center;margin-left:6px}
+.theme-btn svg{width:17px;height:17px}
+.menu-btn{display:none}
+@media (max-width:820px){
+  .menu-btn{display:grid}
+  .nav-links{position:absolute;top:64px;left:0;right:0;flex-direction:column;align-items:stretch;background:var(--bg);border-bottom:1px solid var(--line);padding:8px 16px 16px;display:none}
+  .nav-links.open{display:flex}
+  .nav-links a{padding:12px}
+  .nav-links .theme-li{display:none}
+}
 
-  a { color: var(--accent); text-underline-offset: 3px; }
-  a:focus-visible, .btn:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; border-radius: 4px; }
+/* ============ HERO ============ */
+.hero{background:var(--hero-bg);color:var(--hero-ink);position:relative;overflow:hidden}
+.hero::before{content:"";position:absolute;inset:0;background:
+  radial-gradient(600px 300px at 85% 10%,rgba(76,195,168,.18),transparent 70%),
+  radial-gradient(500px 300px at 10% 100%,rgba(240,184,90,.12),transparent 70%);pointer-events:none}
+.hero::after{content:"";position:absolute;inset:0;background-image:linear-gradient(rgba(255,255,255,.035) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.035) 1px,transparent 1px);background-size:44px 44px;mask-image:linear-gradient(to bottom,#000 30%,transparent);-webkit-mask-image:linear-gradient(to bottom,#000 30%,transparent);pointer-events:none}
+.hero-inner{position:relative;z-index:1;display:grid;grid-template-columns:1.35fr 1fr;gap:56px;align-items:center;padding-top:88px;padding-bottom:96px}
+@media (max-width:900px){.hero-inner{grid-template-columns:1fr;gap:40px;padding-top:56px;padding-bottom:64px}}
+.status{display:inline-flex;align-items:center;gap:10px;font-size:.82rem;font-weight:500;color:var(--hero-ink);background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.12);padding:6px 14px 6px 10px;border-radius:999px;margin-bottom:28px}
+.dot{width:8px;height:8px;border-radius:50%;background:#4cc3a8;box-shadow:0 0 0 0 rgba(76,195,168,.6);animation:pulse 2.4s infinite}
+@keyframes pulse{0%{box-shadow:0 0 0 0 rgba(76,195,168,.55)}70%{box-shadow:0 0 0 10px rgba(76,195,168,0)}100%{box-shadow:0 0 0 0 rgba(76,195,168,0)}}
+.hero h1{color:var(--hero-ink);font-size:clamp(2.4rem,5.4vw,3.9rem);font-weight:600;letter-spacing:-.02em;margin-bottom:14px}
+.hero .role{font-family:var(--serif);font-size:clamp(1.15rem,2.2vw,1.45rem);color:#f0b85a;font-weight:500;margin-bottom:10px}
+.hero .focus{font-family:var(--mono);font-size:.8rem;color:var(--hero-muted);letter-spacing:.02em;margin-bottom:26px;display:flex;flex-wrap:wrap;gap:6px 14px}
+.hero .focus span::before{content:"▹ ";color:#4cc3a8}
+.hero .lede{color:#d5dbe4;font-size:1.06rem;max-width:600px;margin-bottom:30px}
+.meta{display:flex;flex-wrap:wrap;gap:10px 22px;color:var(--hero-muted);font-size:.88rem;margin-bottom:32px}
+.meta div{display:flex;align-items:center;gap:7px}
+.meta svg{width:16px;height:16px;flex-shrink:0;color:#4cc3a8}
+.cta{display:flex;flex-wrap:wrap;gap:12px}
+.btn{display:inline-flex;align-items:center;gap:8px;padding:12px 20px;border-radius:10px;font-weight:600;font-size:.94rem;transition:transform .15s,background .15s,border-color .15s}
+.btn:hover{text-decoration:none;transform:translateY(-1px)}
+.btn svg{width:17px;height:17px}
+.btn-primary{background:#f0b85a;color:#0f1b2d}
+.btn-primary:hover{background:#f5c87a}
+.btn-ghost{color:var(--hero-ink);border:1px solid rgba(255,255,255,.22)}
+.btn-ghost:hover{border-color:rgba(255,255,255,.5);background:rgba(255,255,255,.05)}
 
-  .wrap { max-width: var(--maxw); margin: 0 auto; padding: 0 clamp(1.25rem, 5vw, 2.5rem); }
+.glance{background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.1);border-radius:20px;padding:26px;backdrop-filter:blur(6px)}
+.glance-title{font-size:.74rem;text-transform:uppercase;letter-spacing:.14em;color:var(--hero-muted);margin-bottom:18px;font-weight:600}
+.glance-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.stat{background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.08);border-radius:14px;padding:16px}
+.stat b{display:block;font-family:var(--serif);font-size:1.75rem;font-weight:600;color:var(--hero-ink);line-height:1.1;margin-bottom:4px}
+.stat small{display:block;color:var(--hero-muted);font-size:.8rem;line-height:1.4}
+.stat.wide{grid-column:1/-1;display:flex;align-items:center;gap:14px}
+.stat.wide b{font-size:1.15rem;margin:0}
+.trophy{width:42px;height:42px;border-radius:12px;background:rgba(240,184,90,.15);display:grid;place-items:center;flex-shrink:0}
+.trophy svg{width:22px;height:22px;color:#f0b85a}
 
-  svg.icon { width: 16px; height: 16px; flex-shrink: 0; }
+/* ============ SECTIONS ============ */
+section{padding:96px 0}
+@media (max-width:600px){section{padding:68px 0}}
+.alt{background:var(--bg-alt)}
+.eyebrow{font-family:var(--mono);font-size:.78rem;color:var(--accent);letter-spacing:.06em;text-transform:uppercase;margin-bottom:12px;display:block}
+.sec-head{max-width:720px;margin-bottom:48px}
+.sec-head h2{font-size:clamp(1.9rem,3.6vw,2.6rem);margin-bottom:14px}
+.sec-head p{color:var(--ink-2);font-size:1.04rem;margin:0}
 
-  /* Nav */
-  nav {
-    position: sticky; top: 0; z-index: 10;
-    background: rgba(255,255,255,0.95);
-    backdrop-filter: blur(8px);
-    border-bottom: 1px solid var(--line);
-  }
-  nav .wrap { display: flex; align-items: center; justify-content: space-between; height: 58px; }
-  .nav-name { font-family: var(--serif); font-weight: 600; font-size: 17px; color: var(--ink); text-decoration: none; }
-  .nav-links { display: flex; gap: 1.6rem; list-style: none; }
-  .nav-links a { color: var(--muted); text-decoration: none; font-size: 14px; font-weight: 500; }
-  .nav-links a:hover { color: var(--ink); }
+/* ============ FLAGSHIPS ============ */
+.flagships{display:grid;gap:28px}
+.flag{background:var(--surface);border:1px solid var(--line);border-radius:22px;box-shadow:var(--shadow);overflow:hidden;display:grid;grid-template-columns:1.45fr 1fr;transition:box-shadow .25s,transform .25s}
+.flag:hover{box-shadow:var(--shadow-lg);transform:translateY(-2px)}
+@media (max-width:900px){.flag{grid-template-columns:1fr}}
+.flag-body{padding:36px 38px}
+@media (max-width:600px){.flag-body{padding:26px 22px}}
+.flag-top{display:flex;align-items:center;flex-wrap:wrap;gap:10px;margin-bottom:16px}
+.num{font-family:var(--mono);font-size:.78rem;color:var(--muted)}
+.tag{font-size:.74rem;font-weight:600;letter-spacing:.03em;padding:4px 10px;border-radius:999px;background:var(--accent-soft);color:var(--accent)}
+.tag.gold{background:var(--gold-soft);color:var(--gold)}
+.flag h3{font-size:clamp(1.4rem,2.4vw,1.75rem);margin-bottom:12px}
+.flag .summary{color:var(--ink-2);margin-bottom:18px}
+.points{list-style:none;padding:0;margin:0 0 22px;display:grid;gap:9px}
+.points li{position:relative;padding-left:22px;color:var(--ink-2);font-size:.95rem}
+.points li::before{content:"";position:absolute;left:2px;top:.62em;width:8px;height:8px;border-radius:2px;background:var(--accent);transform:rotate(45deg)}
+.points b{color:var(--ink);font-weight:600}
+.chips{display:flex;flex-wrap:wrap;gap:7px;margin-bottom:24px}
+.chip{font-family:var(--mono);font-size:.74rem;padding:5px 10px;border-radius:7px;background:var(--bg-alt);color:var(--ink-2);border:1px solid var(--line)}
+.links{display:flex;flex-wrap:wrap;gap:10px}
+.lnk{display:inline-flex;align-items:center;gap:7px;font-size:.88rem;font-weight:600;padding:9px 14px;border-radius:9px;border:1px solid var(--line);color:var(--ink);background:var(--surface);transition:border-color .15s,background .15s}
+.lnk:hover{text-decoration:none;border-color:var(--accent);color:var(--accent)}
+.lnk svg{width:15px;height:15px}
+.lnk.solid{background:var(--ink);color:var(--bg);border-color:var(--ink)}
+.lnk.solid:hover{background:var(--accent);border-color:var(--accent);color:#fff}
 
-  /* Hero */
-  .hero { padding: clamp(3.5rem, 8vw, 5.5rem) 0 3rem; }
-  .hero h1 {
-    font-family: var(--serif); font-weight: 700;
-    font-size: clamp(2.3rem, 5.5vw, 3.2rem); line-height: 1.08; letter-spacing: -0.5px;
-    margin-bottom: 0.9rem;
-  }
-  .hero .role { font-size: clamp(1.05rem, 2.2vw, 1.2rem); font-weight: 500; color: var(--accent); margin-bottom: 1.25rem; }
-  .hero .lede { color: var(--muted); max-width: 640px; font-size: 16.5px; line-height: 1.75; }
-  .hero .lede + .lede { margin-top: 0.9rem; }
+.flag-side{background:linear-gradient(160deg,var(--bg-alt),var(--surface));border-left:1px solid var(--line);padding:36px 32px;display:flex;flex-direction:column;gap:14px;justify-content:flex-start}
+@media (max-width:900px){.flag-side{border-left:0;border-top:1px solid var(--line);padding:26px 22px}}
+.side-label{font-size:.72rem;text-transform:uppercase;letter-spacing:.14em;color:var(--muted);font-weight:600}
+.metric{background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:16px 18px}
+.metric b{display:block;font-family:var(--serif);font-size:2rem;line-height:1.05;color:var(--accent);font-weight:600;margin-bottom:4px}
+.metric small{color:var(--ink-2);font-size:.84rem;line-height:1.45;display:block}
+.metric.hl{background:var(--ink);border-color:var(--ink)}
+.metric.hl b{color:#f0b85a}
+.metric.hl small{color:#c9d1dc}
+:root[data-theme="dark"] .metric.hl{background:#1b2a42;border-color:#2a3d5c}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]) .metric.hl{background:#1b2a42;border-color:#2a3d5c}}
+.footnote{font-size:.78rem;color:var(--muted);line-height:1.5;margin:4px 0 0}
 
-  /* Career path: the one visual moment on the page */
-  .path {
-    list-style: none; margin: 2.5rem 0 2.25rem;
-    display: grid; grid-template-columns: repeat(3, 1fr);
-    position: relative;
-  }
-  .path::before {
-    content: ''; position: absolute; left: 7px; right: 0; top: 7px;
-    height: 2px; background: linear-gradient(to right, var(--line), var(--accent));
-  }
-  .path li { position: relative; padding: 1.75rem 1.25rem 0 0; }
-  .path li::before {
-    content: ''; position: absolute; left: 0; top: 0;
-    width: 16px; height: 16px; border-radius: 50%;
-    background: var(--paper); border: 2px solid var(--faint);
-  }
-  .path li.now::before { border-color: var(--accent); background: var(--accent); }
-  .path .when { font-size: 13px; color: var(--faint); font-weight: 500; }
-  .path .what { font-weight: 600; font-size: 15px; line-height: 1.4; margin: 0.15rem 0 0.2rem; }
-  .path .where { font-size: 13.5px; color: var(--muted); }
+.finalist{display:flex;align-items:center;gap:12px;background:var(--gold-soft);border:1px solid color-mix(in srgb,var(--gold) 30%,transparent);color:var(--ink);border-radius:12px;padding:12px 14px;margin-bottom:18px;font-size:.9rem}
+.finalist svg{width:22px;height:22px;color:var(--gold);flex-shrink:0}
 
-  .facts { display: flex; flex-wrap: wrap; gap: 0.5rem 1.5rem; color: var(--muted); font-size: 14px; margin-bottom: 1.75rem; }
-  .facts span { display: inline-flex; align-items: center; gap: 6px; }
-  .facts svg { color: var(--accent); }
+/* ============ SECONDARY GRID ============ */
+.grid2{display:grid;grid-template-columns:repeat(2,1fr);gap:20px}
+@media (max-width:760px){.grid2{grid-template-columns:1fr}}
+.card{background:var(--surface);border:1px solid var(--line);border-radius:var(--radius);padding:26px;display:flex;flex-direction:column;transition:border-color .2s,box-shadow .2s}
+.card:hover{border-color:color-mix(in srgb,var(--accent) 40%,var(--line));box-shadow:var(--shadow)}
+.card .cat{font-family:var(--mono);font-size:.72rem;color:var(--muted);text-transform:uppercase;letter-spacing:.08em;margin-bottom:10px}
+.card h4{font-size:1.22rem;margin-bottom:10px}
+.card p{color:var(--ink-2);font-size:.93rem;margin-bottom:14px}
+.result{font-size:.88rem;color:var(--ink);background:var(--accent-soft);border-left:3px solid var(--accent);padding:10px 12px;border-radius:0 8px 8px 0;margin-bottom:16px}
+.card .chips{margin-bottom:16px}
+.card .links{margin-top:auto}
+.group-title{font-family:var(--serif);font-size:1.3rem;margin:56px 0 20px;display:flex;align-items:center;gap:14px}
+.group-title::after{content:"";flex:1;height:1px;background:var(--line)}
+.group-title:first-of-type{margin-top:0}
 
-  .actions { display: flex; flex-wrap: wrap; gap: 0.7rem; }
-  .btn {
-    display: inline-flex; align-items: center; gap: 8px;
-    padding: 10px 18px; border-radius: 6px;
-    font-size: 14px; font-weight: 600; text-decoration: none;
-    border: 1px solid var(--line); color: var(--ink); background: var(--paper);
-  }
-  .btn:hover { border-color: var(--faint); }
-  .btn.primary { background: var(--ink); border-color: var(--ink); color: #fff; }
-  .btn.primary:hover { background: #2B3845; }
+/* thesis feature */
+.thesis{background:var(--surface);border:1px solid var(--line);border-radius:22px;padding:36px 38px;box-shadow:var(--shadow);display:grid;grid-template-columns:1.2fr 1fr;gap:40px}
+@media (max-width:860px){.thesis{grid-template-columns:1fr;padding:26px 22px;gap:28px}}
+.thesis h3{font-size:1.5rem;margin-bottom:6px}
+.thesis .sub{color:var(--muted);font-size:.9rem;margin-bottom:16px}
+.thesis p{color:var(--ink-2);font-size:.96rem}
+.steps{list-style:none;margin:0;padding:0;counter-reset:s;display:grid;gap:12px}
+.steps li{counter-increment:s;display:grid;grid-template-columns:34px 1fr;gap:12px;align-items:start;font-size:.92rem;color:var(--ink-2)}
+.steps li::before{content:counter(s);width:30px;height:30px;border-radius:9px;background:var(--accent-soft);color:var(--accent);font-family:var(--mono);font-size:.8rem;display:grid;place-items:center;font-weight:600}
+.steps b{display:block;color:var(--ink);font-weight:600}
+.uses{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin:18px 0 22px}
+@media (max-width:520px){.uses{grid-template-columns:1fr}}
+.use{background:var(--bg-alt);border-radius:12px;padding:14px;font-size:.86rem;color:var(--ink-2)}
+.use b{display:block;color:var(--ink);font-size:.92rem;margin-bottom:4px}
 
-  /* Sections */
-  section { padding: 3.75rem 0; border-top: 1px solid var(--line); }
-  h2 {
-    font-family: var(--serif); font-weight: 600;
-    font-size: clamp(1.55rem, 3.2vw, 1.9rem); letter-spacing: -0.3px;
-    margin-bottom: 0.5rem;
-  }
-  .intro { color: var(--muted); max-width: 620px; margin-bottom: 2.25rem; font-size: 15.5px; }
+/* ============ EXPERIENCE ============ */
+.exp-layout{display:grid;grid-template-columns:1fr 320px;gap:40px;align-items:start}
+@media (max-width:900px){.exp-layout{grid-template-columns:1fr}}
+.timeline{position:relative;display:grid;gap:24px}
+.job{background:var(--surface);border:1px solid var(--line);border-radius:18px;padding:30px 32px;box-shadow:var(--shadow)}
+@media (max-width:600px){.job{padding:24px 20px}}
+.job-head{display:flex;justify-content:space-between;flex-wrap:wrap;gap:6px 16px;margin-bottom:6px}
+.job h3{font-size:1.3rem}
+.when{font-family:var(--mono);font-size:.8rem;color:var(--muted);white-space:nowrap;padding-top:6px}
+.org{color:var(--accent);font-weight:600;font-size:.95rem;margin-bottom:12px}
+.job .intro{color:var(--ink-2);font-size:.95rem;margin-bottom:14px}
+.job .points li{font-size:.93rem}
+.aside{display:grid;gap:20px;position:sticky;top:90px}
+@media (max-width:900px){.aside{position:static}}
+.edu{background:var(--surface);border:1px solid var(--line);border-radius:18px;padding:24px}
+.edu h4{font-family:var(--sans);font-size:.75rem;text-transform:uppercase;letter-spacing:.14em;color:var(--muted);margin-bottom:16px;font-weight:600}
+.edu-item{padding:12px 0;border-top:1px solid var(--line)}
+.edu-item:first-of-type{border-top:0;padding-top:0}
+.edu-item b{display:block;font-size:.97rem;color:var(--ink)}
+.edu-item span{display:block;font-size:.86rem;color:var(--ink-2)}
+.edu-item em{font-style:normal;font-family:var(--mono);font-size:.76rem;color:var(--muted)}
 
-  /* Experience */
-  .job-head { display: flex; flex-wrap: wrap; justify-content: space-between; align-items: baseline; gap: 0.25rem 1rem; margin-bottom: 0.3rem; }
-  .job-title { font-size: 18px; font-weight: 600; }
-  .job-dates { font-size: 14px; color: var(--muted); }
-  .job-org { color: var(--muted); font-size: 15px; margin-bottom: 1.25rem; }
-  .job-list { list-style: none; display: grid; gap: 0.85rem; max-width: 720px; }
-  .job-list li { position: relative; padding-left: 1.25rem; color: var(--ink); font-size: 15.5px; }
-  .job-list li::before {
-    content: ''; position: absolute; left: 0; top: 0.68em;
-    width: 6px; height: 6px; border-radius: 50%; background: var(--accent);
-  }
-  .job-list strong { font-weight: 600; }
+/* ============ SKILLS ============ */
+.skills{display:grid;grid-template-columns:repeat(2,1fr);gap:20px}
+@media (max-width:760px){.skills{grid-template-columns:1fr}}
+.skill{background:var(--surface);border:1px solid var(--line);border-radius:var(--radius);padding:26px}
+.skill-head{display:flex;align-items:center;gap:12px;margin-bottom:16px}
+.ico{width:40px;height:40px;border-radius:11px;background:var(--accent-soft);color:var(--accent);display:grid;place-items:center;flex-shrink:0}
+.ico svg{width:20px;height:20px}
+.skill h3{font-family:var(--sans);font-size:1.02rem;font-weight:600}
+.skill .chips{margin:0}
 
-  /* Projects */
-  .group { margin-top: 2.75rem; }
-  .group:first-of-type { margin-top: 0; }
-  .group-head { display: flex; align-items: baseline; gap: 0.75rem; margin-bottom: 0.35rem; }
-  .group h3 { font-family: var(--serif); font-size: 1.3rem; font-weight: 600; }
-  .group .count { font-size: 13px; color: var(--faint); }
-  .group-sub { color: var(--muted); font-size: 14.5px; margin-bottom: 1.25rem; max-width: 620px; }
+/* ============ CONTACT ============ */
+.contact{background:var(--hero-bg);color:var(--hero-ink);position:relative;overflow:hidden}
+.contact::before{content:"";position:absolute;inset:0;background:radial-gradient(600px 300px at 50% 0%,rgba(76,195,168,.15),transparent 70%);pointer-events:none}
+.contact-inner{position:relative;text-align:center;max-width:720px;margin:0 auto}
+.contact h2{color:var(--hero-ink);font-size:clamp(2rem,4vw,2.8rem);margin-bottom:16px}
+.contact p{color:#cdd5e0;font-size:1.06rem;margin-bottom:30px}
+.contact .eyebrow{color:#4cc3a8}
+.contact .cta{justify-content:center}
+.email-line{margin-top:22px;font-family:var(--mono);font-size:.86rem;color:var(--hero-muted)}
+footer{background:var(--hero-bg);color:var(--hero-muted);font-size:.84rem;border-top:1px solid rgba(255,255,255,.08)}
+.foot{display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px;padding:24px 0}
+footer a{color:var(--hero-muted)}
 
-  .projects { display: grid; grid-template-columns: 1fr 1fr; gap: 0 2.25rem; }
-  .project { padding: 1.35rem 0 1.5rem; border-top: 1px solid var(--line); display: flex; flex-direction: column; gap: 0.55rem; }
-  .project h4 { font-size: 16px; font-weight: 600; line-height: 1.35; }
-  .project p { font-size: 14.5px; color: var(--muted); line-height: 1.65; }
-  .result { font-size: 14px; color: var(--ink); padding: 0.55rem 0.8rem; background: var(--soft); border-left: 3px solid var(--accent); border-radius: 0 4px 4px 0; }
-  .tools { font-size: 13px; color: var(--faint); }
-  .links { display: flex; flex-wrap: wrap; gap: 1rem; font-size: 14px; font-weight: 600; margin-top: auto; padding-top: 0.2rem; }
-  .links a { text-decoration: none; }
-  .links a:hover { text-decoration: underline; }
-  .links .note { color: var(--faint); font-weight: 500; }
-
-  .featured { grid-column: 1 / -1; }
-  .featured p { max-width: 700px; }
-
-  /* Thesis */
-  .thesis-title { font-family: var(--serif); font-size: 1.3rem; font-weight: 600; line-height: 1.35; margin-bottom: 0.4rem; max-width: 680px; }
-  .thesis-meta { color: var(--muted); font-size: 14.5px; margin-bottom: 1.5rem; }
-  .thesis-body p { color: var(--muted); max-width: 680px; font-size: 15.5px; }
-  .thesis-body p + p { margin-top: 0.9rem; }
-
-  .method { list-style: none; counter-reset: step; display: grid; grid-template-columns: repeat(5, 1fr); gap: 1rem; margin: 2rem 0; }
-  .method li { counter-increment: step; border-top: 2px solid var(--accent); padding-top: 0.75rem; }
-  .method li::before { content: counter(step); font-family: var(--serif); font-weight: 600; color: var(--accent); font-size: 1.1rem; }
-  .method .step { display: block; font-weight: 600; font-size: 14.5px; margin: 0.1rem 0 0.25rem; }
-  .method .detail { font-size: 13.5px; color: var(--muted); line-height: 1.55; }
-
-  .uses { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin-bottom: 1.75rem; }
-  .use { background: var(--soft); border-radius: 8px; padding: 1.1rem 1.25rem; }
-  .use h4 { font-size: 15px; font-weight: 600; margin-bottom: 0.3rem; }
-  .use p { font-size: 14px; color: var(--muted); }
-
-  .pub { display: flex; flex-wrap: wrap; gap: 0.5rem 1.5rem; font-size: 14.5px; align-items: baseline; }
-  .pub .label { color: var(--muted); }
-
-  /* Skills */
-  .skills { display: grid; gap: 0; }
-  .skill-row { display: grid; grid-template-columns: 200px 1fr; gap: 1rem; padding: 1rem 0; border-top: 1px solid var(--line); }
-  .skill-row:first-child { border-top: none; padding-top: 0; }
-  .skill-row dt { font-weight: 600; font-size: 15px; }
-  .skill-row dd { color: var(--muted); font-size: 15px; }
-
-  /* Contact */
-  .contact p { color: var(--muted); max-width: 620px; margin-bottom: 1.5rem; }
-
-  footer { padding: 2rem 0 2.5rem; border-top: 1px solid var(--line); color: var(--faint); font-size: 13px; }
-
-  @media (max-width: 760px) {
-    .nav-links { display: none; }
-    .path { grid-template-columns: 1fr; margin-left: 0; }
-    .path::before { left: 7px; right: auto; top: 0; bottom: 0; width: 2px; height: auto; background: linear-gradient(to bottom, var(--line), var(--accent)); }
-    .path li { padding: 0 0 1.5rem 2rem; }
-    .projects { grid-template-columns: 1fr; }
-    .method { grid-template-columns: 1fr; }
-    .uses { grid-template-columns: 1fr; }
-    .skill-row { grid-template-columns: 1fr; gap: 0.25rem; }
-  }
+/* ============ REVEAL ============ */
+.reveal{opacity:0;transform:translateY(18px);transition:opacity .7s ease,transform .7s ease}
+.reveal.in{opacity:1;transform:none}
+@media (prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto}
+  .reveal{opacity:1;transform:none;transition:none}
+  .dot{animation:none}
+  .flag:hover,.btn:hover{transform:none}
+}
+.no-js .reveal{opacity:1;transform:none}
 </style>
 </head>
-<body>
 
-<nav aria-label="Main">
-  <div class="wrap">
-    <a class="nav-name" href="#top">Lakshmi Bharathy Kumar</a>
-    <ul class="nav-links">
-      <li><a href="#experience">Experience</a></li>
-      <li><a href="#projects">Projects</a></li>
-      <li><a href="#thesis">Thesis</a></li>
-      <li><a href="#skills">Skills</a></li>
-      <li><a href="#contact">Contact</a></li>
-    </ul>
-  </div>
-</nav>
+<body class="no-js">
+<a class="skip" href="#main">Skip to content</a>
 
-<main id="top">
-
-<!-- HERO -->
-<header class="wrap hero">
-  <h1>Lakshmi Bharathy Kumar</h1>
-  <p class="role">Data Scientist, marketing and growth analytics</p>
-  <p class="lede">
-    I started my career in analytics at a digital marketing startup, where I owned web analytics, SEO,
-    KPI reporting, and paid campaigns, and used the numbers to decide what to change on client websites.
-  </p>
-  <p class="lede">
-    My M.S. in Applied Data Intelligence at San José State University added the statistics, causal inference,
-    and machine learning to go further: from reporting what happened to explaining why, and deciding what to do next.
-  </p>
-
-  <ol class="path" aria-label="Career path">
-    <li>
-      <div class="when">2014</div>
-      <div class="what">B.E., Electronics and Communication Engineering</div>
-      <div class="where">Saranathan College of Engineering</div>
-    </li>
-    <li>
-      <div class="when">2021 – 2022</div>
-      <div class="what">Digital Marketing Specialist</div>
-      <div class="where">RepuNEXT</div>
-    </li>
-    <li class="now">
-      <div class="when">May 2026</div>
-      <div class="what">M.S., Applied Data Intelligence</div>
-      <div class="where">San José State University</div>
-    </li>
-  </ol>
-
-  <div class="facts">
-    <span>
-      <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 21c-4-4-7-7.5-7-11a7 7 0 0 1 14 0c0 3.5-3 7-7 11z"/><circle cx="12" cy="10" r="2.5"/></svg>
-      San Jose, CA, open to Bay Area roles
-    </span>
-    <span>
-      <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3l7 3v6c0 4.5-3 8-7 9-4-1-7-4.5-7-9V6l7-3z"/><path d="m9 12 2 2 4-4"/></svg>
-      Authorized to work in the U.S. without sponsorship
-    </span>
-  </div>
-
-  <div class="actions">
-    <a class="btn primary" href="https://linkedin.com/in/lakshmi-bharathy-kumar" target="_blank" rel="noopener">
-      <svg class="icon" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M4.98 3.5C4.98 5 3.87 6 2.5 6S0 5 0 3.5 1.13 1 2.5 1s2.48 1 2.48 2.5zM.5 8.5h4V23h-4V8.5zM8.5 8.5h3.8v2h.06c.53-1 1.83-2.06 3.77-2.06 4.03 0 4.77 2.65 4.77 6.1V23h-4v-6.7c0-1.6-.03-3.66-2.23-3.66-2.23 0-2.57 1.75-2.57 3.55V23h-4V8.5z"/></svg>
-      LinkedIn
-    </a>
-    <a class="btn" href="https://github.com/Lakshmibharathy11" target="_blank" rel="noopener">
-      <svg class="icon" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 .3a12 12 0 0 0-3.8 23.4c.6.1.8-.3.8-.6v-2.2c-3.3.7-4-1.6-4-1.6-.6-1.4-1.4-1.8-1.4-1.8-1.1-.8.1-.7.1-.7 1.2.1 1.9 1.3 1.9 1.3 1.1 1.9 2.9 1.3 3.6 1 .1-.8.4-1.3.8-1.6-2.7-.3-5.5-1.3-5.5-5.9 0-1.3.5-2.4 1.3-3.2-.1-.3-.6-1.6.1-3.2 0 0 1-.3 3.4 1.2a11.5 11.5 0 0 1 6 0c2.3-1.5 3.3-1.2 3.3-1.2.7 1.6.2 2.9.1 3.2.8.8 1.3 1.9 1.3 3.2 0 4.6-2.8 5.6-5.5 5.9.4.4.8 1.1.8 2.2v3.3c0 .3.2.7.8.6A12 12 0 0 0 12 .3z"/></svg>
-      GitHub
-    </a>
-    <a class="btn" href="mailto:lakshmibharathyk@gmail.com">
-      <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 5h16v14H4z"/><path d="m4 7 8 6 8-6"/></svg>
-      Email
-    </a>
+<!-- ======================= NAV ======================= -->
+<header class="nav" id="nav">
+  <div class="wrap nav-inner">
+    <a class="brand" href="#top">Lakshmi Bharathy Kumar<span>.</span></a>
+    <div style="display:flex;align-items:center">
+      <ul class="nav-links" id="navLinks">
+        <li><a href="#work">Featured work</a></li>
+        <li><a href="#more">More projects</a></li>
+        <li><a href="#experience">Experience</a></li>
+        <li><a href="#skills">Skills</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+      <button class="theme-btn" id="themeBtn" aria-label="Toggle dark mode">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z"/></svg>
+      </button>
+      <button class="theme-btn menu-btn" id="menuBtn" aria-label="Open menu" aria-expanded="false">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
+      </button>
+    </div>
   </div>
 </header>
 
-<!-- EXPERIENCE -->
+<main id="main">
+<!-- ======================= HERO ======================= -->
+<section class="hero" id="top" style="padding:0">
+  <div class="wrap hero-inner">
+    <div>
+      <div class="status"><span class="dot"></span>Open to Associate Decision Scientist &amp; Growth Data Scientist roles</div>
+      <h1>Lakshmi Bharathy Kumar</h1>
+      <p class="role">Associate Data Scientist · Decision Science &amp; Growth Analytics</p>
+      <div class="focus"><span>Incrementality</span><span>Marketing Mix Modeling</span><span>Customer Intelligence</span><span>Experimentation</span></div>
+      <p class="lede">I use statistics, causal inference, and machine learning to answer the question behind the dashboard: <strong style="color:#fff;font-weight:600">what actually drove the result, and what should we do next?</strong> My foundation is hands-on marketing and web analytics for client businesses. My M.S. in Applied Data Intelligence at San José State University added the rigor to measure true incrementality, allocate budget, and prioritize the customers worth keeping.</p>
+      <div class="meta">
+        <div><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 21s-7-6.2-7-11a7 7 0 0 1 14 0c0 4.8-7 11-7 11z"/><circle cx="12" cy="10" r="2.5"/></svg>San Jose, CA · Bay Area &amp; Remote</div>
+        <div><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6 9 17l-5-5"/></svg>Authorized to work in the U.S. without sponsorship</div>
+      </div>
+      <div class="cta">
+        <a class="btn btn-primary" href="#work">View featured work
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><path d="M12 5v14M5 12l7 7 7-7"/></svg></a>
+        <a class="btn btn-ghost" href="https://www.linkedin.com/in/lakshmibharathy-kumar" target="_blank" rel="noopener">
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M20.45 20.45h-3.56v-5.57c0-1.33-.02-3.04-1.85-3.04-1.85 0-2.14 1.45-2.14 2.94v5.67H9.35V9h3.41v1.56h.05c.48-.9 1.64-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.46v6.28zM5.34 7.43a2.06 2.06 0 1 1 0-4.13 2.06 2.06 0 0 1 0 4.13zM7.12 20.45H3.56V9h3.56v11.45zM22.22 0H1.77C.79 0 0 .77 0 1.73v20.54C0 23.23.79 24 1.77 24h20.45c.98 0 1.78-.77 1.78-1.73V1.73C24 .77 23.2 0 22.22 0z"/></svg>LinkedIn</a>
+        <a class="btn btn-ghost" href="https://github.com/Lakshmibharathy11" target="_blank" rel="noopener">
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 .3a12 12 0 0 0-3.8 23.4c.6.1.8-.3.8-.6v-2c-3.3.7-4-1.6-4-1.6-.6-1.4-1.4-1.8-1.4-1.8-1-.7.1-.7.1-.7 1.2.1 1.8 1.2 1.8 1.2 1 1.8 2.8 1.3 3.5 1 0-.8.4-1.3.7-1.6-2.7-.3-5.5-1.3-5.5-5.9 0-1.3.5-2.4 1.2-3.2 0-.4-.5-1.6.2-3.2 0 0 1-.3 3.3 1.2a11.5 11.5 0 0 1 6 0C17.3 4.7 18.3 5 18.3 5c.7 1.6.2 2.8.1 3.2.8.8 1.2 1.9 1.2 3.2 0 4.6-2.8 5.6-5.5 5.9.5.4.9 1.1.9 2.2v3.3c0 .3.2.7.8.6A12 12 0 0 0 12 .3"/></svg>GitHub</a>
+      </div>
+    </div>
+
+    <aside class="glance" aria-label="At a glance">
+      <div class="glance-title">At a glance</div>
+      <div class="glance-grid">
+        <div class="stat wide">
+          <div class="trophy"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M8 21h8M12 17v4M7 4h10v5a5 5 0 0 1-10 0V4zM17 5h3v2a3 3 0 0 1-3 3M7 5H4v2a3 3 0 0 0 3 3"/></svg></div>
+          <div><b>AWS Agentic AI Hackathon Finalist</b><small>Top 5 of 12 teams · presented live at AWS Community Day, SF</small></div>
+        </div>
+        <div class="stat"><b>13.9M</b><small>user records in causal uplift model</small></div>
+        <div class="stat"><b>4.4%</b><small>MAPE on Bayesian marketing mix model</small></div>
+        <div class="stat"><b>2+ yrs</b><small>marketing &amp; web analytics for client businesses</small></div>
+        <div class="stat"><b>M.S.</b><small>Applied Data Intelligence, SJSU · 2026</small></div>
+      </div>
+    </aside>
+  </div>
+</section>
+
+<!-- ======================= FEATURED WORK ======================= -->
+<section id="work">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <span class="eyebrow">01 · Featured work</span>
+      <h2>Decision &amp; commercial intelligence</h2>
+      <p>Four projects that answer real business questions: where to spend, who to target, which customers to keep, and what changed this week and why.</p>
+    </div>
+
+    <div class="flagships">
+
+      <!-- ===== FLAGSHIP 1: MMM ===== -->
+      <article class="flag reveal">
+        <div class="flag-body">
+          <div class="flag-top"><span class="num">01</span><span class="tag">Marketing Measurement</span></div>
+          <h3>Bayesian Marketing Mix Model &amp; Budget Optimizer</h3>
+          <p class="summary">Which channels actually drive revenue, and how should a fixed budget be split? A Bayesian MMM built with Google Meridian on its simulated demo dataset: 156 weeks, 40 markets, 5 paid channels, modeled at the national level.</p>
+          <ul class="points">
+            <li><b>Handled channel collinearity</b> with VIF-informed priors so spend effects weren't confused with each other.</li>
+            <li><b>Validated the model</b>: converged across 4 MCMC chains (max R-hat 1.004) and predicts weekly revenue within 4.4% MAPE.</li>
+            <li><b>Recommended a reallocation</b> with a constrained optimizer: shift $7.7M in total, including $4.8M into the most underfunded channel, at the same $219.5M budget.</li>
+            <li><b>Delivered results</b> through a five-page Looker Studio dashboard for non-technical stakeholders.</li>
+          </ul>
+          <div class="chips"><span class="chip">Python</span><span class="chip">Google Meridian</span><span class="chip">Bayesian inference</span><span class="chip">MCMC</span><span class="chip">Optimization</span><span class="chip">Looker Studio</span></div>
+          <div class="links">
+            <a class="lnk solid" href="https://datastudio.google.com/reporting/4b8a253d-cede-481e-bd2c-54a4517b0cd9" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 3v18h18M7 15l4-4 3 3 5-6"/></svg>Live dashboard</a>
+            <a class="lnk" href="https://github.com/Lakshmibharathy11/Marketing-Mix-Modeling-for-Multichannel-Budget-Allocation" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m16 18 6-6-6-6M8 6l-6 6 6 6"/></svg>Code</a>
+          </div>
+        </div>
+        <div class="flag-side">
+          <span class="side-label">Business outcome</span>
+          <div class="metric hl"><b>+$1.0M</b><small>projected media-driven revenue (+0.35%) from reallocation, with zero added spend</small></div>
+          <div class="metric"><b>&lt; 1.0</b><small>marginal ROI on every channel, so moving budget beats adding budget</small></div>
+          <p class="footnote">Built on Google Meridian's simulated demo data to demonstrate the method end to end.</p>
+        </div>
+      </article>
+
+      <!-- ===== FLAGSHIP 2: UPLIFT ===== -->
+      <article class="flag reveal">
+        <div class="flag-body">
+          <div class="flag-top"><span class="num">02</span><span class="tag">Causal Inference · Incrementality</span></div>
+          <h3>Causal Uplift &amp; Incrementality Platform</h3>
+          <p class="summary">Which users convert <em>because</em> of an ad, versus users who would have converted anyway? Uplift models on the Criteo dataset (13.9M users) to stop spending on people who don't need persuading.</p>
+          <ul class="points">
+            <li><b>Compared three uplift approaches</b> (T-learner, X-learner, transformed outcome) and selected transformed outcome on Qini score (0.726), evaluated with Qini curves and AUUC.</li>
+            <li><b>Segmented the audience</b> and found 13.2% of users are "persuadables," the only group where ads change behavior.</li>
+            <li><b>Deployed a decision tool</b>: Streamlit dashboard on AWS EC2 with outputs in S3, plus an LLM budget advisor whose numeric claims are checked against model outputs.</li>
+          </ul>
+          <div class="chips"><span class="chip">Python</span><span class="chip">Uplift modeling</span><span class="chip">Qini / AUUC</span><span class="chip">Streamlit</span><span class="chip">AWS EC2 · S3</span><span class="chip">Groq LLM</span></div>
+          <div class="links">
+            <a class="lnk solid" href="https://youtu.be/QV7yTNwBOlk" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="m10 8 6 4-6 4V8z" fill="currentColor"/></svg>Watch demo</a>
+            <a class="lnk" href="https://github.com/Lakshmibharathy11/Causal-Uplift-Budget-Optimizer" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m16 18 6-6-6-6M8 6l-6 6 6 6"/></svg>Code</a>
+          </div>
+        </div>
+        <div class="flag-side">
+          <span class="side-label">Business outcome</span>
+          <div class="metric hl"><b>87.8%</b><small>of incremental conversions captured by targeting only the top 30% of users</small></div>
+          <div class="metric"><b>15.6×</b><small>projected ROI in the high-confidence targeting tier</small></div>
+          <p class="footnote">ROI uses placeholder cost assumptions, since the dataset has no real campaign costs.</p>
+        </div>
+      </article>
+
+      <!-- ===== FLAGSHIP 3: RETENTION ===== -->
+      <article class="flag reveal">
+        <div class="flag-body">
+          <div class="flag-top"><span class="num">03</span><span class="tag">Customer Analytics · Lifecycle</span></div>
+          <h3>Customer Retention Priority Engine: RFM, CLV &amp; Churn</h3>
+          <p class="summary">Which customers are worth the retention budget? RFM segmentation, customer lifetime value, and churn risk for about 5,878 customers from the Online Retail II dataset, combined into one priority view.</p>
+          <ul class="points">
+            <li><b>Caught and fixed data leakage</b>: Recency was leaking the churn label, so the first model looked better than it really was. Removed it before finalizing.</li>
+            <li><b>Chose the simpler model on evidence</b>: logistic regression reached 69.6% accuracy after the fix; Random Forest was tested and underperformed.</li>
+            <li><b>Ranked customers by value at risk</b> so retention effort goes to the accounts that matter most.</li>
+          </ul>
+          <div class="chips"><span class="chip">Python</span><span class="chip">RFM segmentation</span><span class="chip">CLV</span><span class="chip">Logistic regression</span><span class="chip">pandas</span></div>
+          <div class="links">
+            <a class="lnk solid" href="https://github.com/Lakshmibharathy11/Retention-Priority-Dashboard-RFM-CLV-and-Churn-Risk" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m16 18 6-6-6-6M8 6l-6 6 6 6"/></svg>Code</a>
+          </div>
+        </div>
+        <div class="flag-side">
+          <span class="side-label">Business outcome</span>
+          <div class="metric hl"><b>£9.26M</b><small>held by the top 50 customers: 24.7% of total projected value</small></div>
+          <div class="metric"><b>69.6%</b><small>churn model accuracy after removing the leakage, an honest baseline</small></div>
+        </div>
+      </article>
+
+      <!-- ===== FLAGSHIP 4: WBR AGENT ===== -->
+      <article class="flag reveal">
+        <div class="flag-body">
+          <div class="flag-top"><span class="num">04</span><span class="tag gold">Hackathon Finalist</span><span class="tag">Decision Automation · Agentic AI</span></div>
+          <h3>Weekly Business Review (WBR) AI Agent</h3>
+          <div class="finalist">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="6"/><path d="M15.5 13.5 17 22l-5-3-5 3 1.5-8.5"/></svg>
+            <span><strong>Finalist, AWS Community Day Bay Area Agentic AI Hackathon.</strong> One of 5 teams (of 12) selected to present live at the AWS Builder Loft, San Francisco, Oct 2026.</span>
+          </div>
+          <p class="summary">Every week analysts spend hours explaining why a metric moved. This agent does the first pass: it investigates weekly e-commerce metrics (Olist dataset), flags unusual changes, and writes a review memo, with a second agent checking each claim before it reaches a reader.</p>
+          <ul class="points">
+            <li><b>Designed a two-agent system</b>: an analyst agent investigates metric changes through query tools, and a verifier agent checks its claims for hallucination.</li>
+            <li><b>Built anomaly detection</b> using robust z-scores, with low-confidence rules for small samples so noise isn't reported as a trend.</li>
+            <li><b>Safe by design</b>: read-only guardrails, so the agents cannot modify tables or reach other AWS resources.</li>
+            <li><b>Proved the verifier works live</b>: ran on AWS (Bedrock Nova Micro + Athena) at the finals; on a run with wrong-week evidence, the verifier rejected the report and withheld all 6 claims.</li>
+            <li><b>My role</b>: idea and submission lead; owned the data and query layer (S3, metric queries), the tool functions, the analyst agent loop, and anomaly detection.</li>
+          </ul>
+          <div class="chips"><span class="chip">Python</span><span class="chip">Multi-agent</span><span class="chip">AWS S3 · Athena</span><span class="chip">Amazon Bedrock</span><span class="chip">DuckDB</span><span class="chip">SQL</span></div>
+          <div class="links">
+            <a class="lnk solid" href="https://www.youtube.com/watch?v=g0gkIQRJTQM" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="m10 8 6 4-6 4V8z" fill="currentColor"/></svg>Watch demo</a>
+            <a class="lnk" href="wbr-reports/index.html" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6M8 13h8M8 17h5"/></svg>Live run reports</a>
+            <a class="lnk" href="https://www.linkedin.com/feed/update/urn:li:activity:7516586069694357505/" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M20.45 20.45h-3.56v-5.57c0-1.33-.02-3.04-1.85-3.04-1.85 0-2.14 1.45-2.14 2.94v5.67H9.35V9h3.41v1.56h.05c.48-.9 1.64-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.46v6.28zM5.34 7.43a2.06 2.06 0 1 1 0-4.13 2.06 2.06 0 0 1 0 4.13zM7.12 20.45H3.56V9h3.56v11.45z"/></svg>LinkedIn post</a>
+            <a class="lnk" href="https://github.com/Lakshmibharathy11/team-s04-wbr-agent-mirror" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m16 18 6-6-6-6M8 6l-6 6 6 6"/></svg>Code</a>
+          </div>
+        </div>
+        <div class="flag-side">
+          <span class="side-label">Engineering quality</span>
+          <div class="metric hl"><b>Top 5</b><small>of 12 teams selected for the live finalist demo</small></div>
+          <div class="metric"><b>283</b><small>automated tests (+47 subtests) covering queries, tools, and agent logic</small></div>
+          <div class="metric"><b>13 / 13</b><small>queries return identical results locally (DuckDB) and on AWS Athena</small></div>
+        </div>
+      </article>
+
+    </div>
+  </div>
+</section>
+
+<!-- ======================= MORE PROJECTS ======================= -->
+<section id="more" class="alt">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <span class="eyebrow">02 · Applied research &amp; engineering</span>
+      <h2>More projects</h2>
+      <p>Research, statistical modeling, and the data and AI engineering that support decision work. More experiments are on <a href="https://github.com/Lakshmibharathy11" target="_blank" rel="noopener">GitHub</a>.</p>
+    </div>
+
+    <!-- THESIS -->
+    <h3 class="group-title reveal">Graduate research</h3>
+    <article class="thesis reveal">
+      <div>
+        <span class="tag" style="display:inline-block;margin-bottom:14px">M.S. Thesis · SJSU ScholarWorks</span>
+        <h3>Eye-Tracking Based Direction Control Using Machine Learning</h3>
+        <p class="sub">M.S. thesis, San José State University, May 2026</p>
+        <p>Eye-tracking lets a machine take direction from where a person looks, which helps when their hands aren't a reliable input. Gaze is a noisy biological signal, full of micro-movements, blinks, and person-to-person differences. The core problem was finding a representation stable enough to classify reliably, both for one person and across people.</p>
+        <div class="uses">
+          <div class="use"><b>Personal assistive devices</b>Wheelchair navigation for one repeat user, where the model can be calibrated to that individual.</div>
+          <div class="use"><b>Shared control systems</b>Teleoperated drones or robots handed between operators, where the model must work for someone new.</div>
+        </div>
+        <div class="links">
+          <a class="lnk solid" href="https://doi.org/10.31979/etd.h3rd-h8n2" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20V2H6.5A2.5 2.5 0 0 0 4 4.5v15zM20 17v5H6.5A2.5 2.5 0 0 1 4 19.5"/></svg>DOI 10.31979/etd.h3rd-h8n2</a>
+          <a class="lnk" href="https://github.com/Lakshmibharathy11/Graduate_Thesis" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="m10 8 6 4-6 4V8z" fill="currentColor"/></svg>Overview video</a>
+        </div>
+      </div>
+      <ol class="steps">
+        <li><div><b>Data collection</b>Lab-collected eye-tracking recordings of directional gaze</div></li>
+        <li><div><b>Validation</b>Checked labels against physical gaze behavior and for directional bias</div></li>
+        <li><div><b>Feature engineering</b>Coordinate, time-aggregated, and eye-image representations</div></li>
+        <li><div><b>Modeling</b>Classical ML classifiers compared with fine-tuned CNNs</div></li>
+        <li><div><b>Evaluation</b>Personalized and cross-user generalization testing</div></li>
+      </ol>
+    </article>
+
+    <!-- STATISTICAL MODELING -->
+    <h3 class="group-title reveal">Statistical modeling</h3>
+    <div class="grid2">
+      <article class="card reveal" style="grid-column:1/-1">
+        <div class="cat">Time series · Sentiment</div>
+        <h4>Tesla Stock Sentiment Pipeline</h4>
+        <p>Group project (DATA 226, SJSU) combining stock prices with tweet sentiment. My part: VADER sentiment scoring, Snowflake ELT, SQL regression, Airflow scheduling, and dbt modeling.</p>
+        <div class="result">R² = 0.916; next-day price most influenced by lagged 3- and 7-day sentiment averages</div>
+        <div class="chips"><span class="chip">Python</span><span class="chip">Snowflake</span><span class="chip">dbt</span><span class="chip">Airflow</span><span class="chip">SQL</span></div>
+        <div class="links">
+          <a class="lnk" href="https://github.com/Lakshmibharathy11/Tesla_stock_sentiment_analysis" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m16 18 6-6-6-6M8 6l-6 6 6 6"/></svg>Code</a>
+        </div>
+      </article>
+    </div>
+
+    <!-- DATA & AI ENGINEERING -->
+    <h3 class="group-title reveal">Data &amp; AI engineering</h3>
+    <div class="grid2">
+      <article class="card reveal">
+        <div class="cat">Data engineering</div>
+        <h4>Law Enforcement Data ETL Pipeline</h4>
+        <p>Solo-built pipeline: a daily Airflow ETL DAG loads data into Snowflake, and a separate DAG runs dbt to model the warehouse, with automated dbt tests. Fully containerized with Docker.</p>
+        <div class="chips"><span class="chip">Airflow</span><span class="chip">dbt</span><span class="chip">Snowflake</span><span class="chip">Docker</span><span class="chip">SQL</span></div>
+        <div class="links">
+          <a class="lnk" href="https://github.com/Lakshmibharathy11/Law_Enforcement_Analytics" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m16 18 6-6-6-6M8 6l-6 6 6 6"/></svg>Code</a>
+        </div>
+      </article>
+
+      <article class="card reveal">
+        <div class="cat">LLM systems · Evaluation</div>
+        <h4>AI Customer Support Triage Agent</h4>
+        <p>LangGraph agent that answers tickets from a synthetic knowledge base (FAISS retrieval) using Groq-hosted models. A custom evaluation harness scores every answer, and a human-in-the-loop gate catches low-faithfulness responses.</p>
+        <div class="result">Faithfulness 0.81 and relevance 0.94 (LLM-as-judge) at $0.00139 per ticket across 45 tickets</div>
+        <div class="chips"><span class="chip">LangGraph</span><span class="chip">RAG</span><span class="chip">FAISS</span><span class="chip">Groq</span><span class="chip">LLM evaluation</span></div>
+        <div class="links">
+          <a class="lnk" href="https://github.com/Lakshmibharathy11/AI-Customer-Support-Triage-Agent" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m16 18 6-6-6-6M8 6l-6 6 6 6"/></svg>Code</a>
+        </div>
+      </article>
+
+      <article class="card reveal">
+        <div class="cat">Automation</div>
+        <h4>Automated Job Monitoring Pipeline</h4>
+        <p>Scheduled GitHub Actions workflow that pulls new roles from the YC Work at a Startup and Greenhouse APIs, filters by location and seniority, scores each against a skill profile, and sends ranked email digests and WhatsApp alerts. SQLite handles deduplication.</p>
+        <div class="chips"><span class="chip">Python</span><span class="chip">GitHub Actions</span><span class="chip">REST APIs</span><span class="chip">SQLite</span><span class="chip">Twilio</span></div>
+        <div class="links">
+          <a class="lnk" href="https://github.com/Lakshmibharathy11/job-search-assistant" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m16 18 6-6-6-6M8 6l-6 6 6 6"/></svg>Code</a>
+        </div>
+      </article>
+
+      <article class="card reveal">
+        <div class="cat">Distributed systems · Team project</div>
+        <h4>Kayak-Style Travel Booking Platform</h4>
+        <p>Team-built full-stack travel booking system (DATA 236, SJSU): React/TypeScript frontend, 8 FastAPI microservices, and Kafka event streaming. My parts: the user booking module, billing middleware, Kafka booking topics, MySQL bookings and billing data, and the concierge agent.</p>
+        <div class="chips"><span class="chip">FastAPI</span><span class="chip">Kafka</span><span class="chip">MySQL</span><span class="chip">MongoDB</span><span class="chip">Redis</span><span class="chip">Docker</span></div>
+        <div class="links">
+          <a class="lnk" href="https://github.com/Lakshmibharathy11/Kayak_style_full_stack_development" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m16 18 6-6-6-6M8 6l-6 6 6 6"/></svg>Code</a>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ======================= EXPERIENCE ======================= -->
 <section id="experience">
   <div class="wrap">
-    <h2>Experience</h2>
-    <p class="intro">At an early-stage startup, I covered analytics, SEO, paid search, and content, often starting from a loosely defined problem and working out what to measure.</p>
-
-    <div class="job-head">
-      <div class="job-title">Digital Marketing Specialist</div>
-      <div class="job-dates">June 2021 – December 2022</div>
+    <div class="sec-head reveal">
+      <span class="eyebrow">03 · Experience</span>
+      <h2>Commercial experience</h2>
+      <p>Before graduate school, I worked inside the problems I now model: client website funnels, campaign spend, and the weekly question of what to change next.</p>
     </div>
-    <div class="job-org">RepuNEXT</div>
 
-    <ul class="job-list">
-      <li><strong>Web analytics and SEO.</strong> Used Google Analytics and SEMrush to track traffic and keyword performance, diagnose funnel drop-off, and rebuild SEO targeting, contributing to a 25% increase in organic traffic.</li>
-      <li><strong>KPIs and funnel analysis.</strong> Defined and tracked KPIs for traffic, engagement, and conversion, and used funnel analysis to find where visitors dropped off.</li>
-      <li><strong>Metric-driven website optimization.</strong> Prioritized website changes based on what the data showed, then measured whether each change moved the relevant KPI.</li>
-      <li><strong>Reporting automation.</strong> Built reporting in Google Sheets that merged data from multiple marketing sources into a single view, replacing manual compilation.</li>
-      <li><strong>Google Ads and A/B testing.</strong> Set up and managed a Google Ads campaign for a client account, running A/B tests and adjusting budget based on results.</li>
-      <li><strong>Social and content.</strong> Analyzed post-level engagement on client social media pages and wrote copy and content for them.</li>
-    </ul>
+    <div class="exp-layout">
+      <div class="timeline">
+        <article class="job reveal">
+          <div class="job-head"><h3>Digital Marketing Specialist</h3><span class="when">Jun 2021 – Dec 2022</span></div>
+          <div class="org">RepuNEXT</div>
+          <p class="intro">Owned analytics, SEO, paid search, and content for four client accounts at an early-stage startup, often starting from a loosely defined problem and working out what to measure.</p>
+          <ul class="points">
+            <li><b>Funnel diagnosis &amp; SEO.</b> Diagnosed funnel drop-off with Google Analytics and SEMrush and rebuilt keyword targeting, contributing to a 25% increase in organic traffic.</li>
+            <li><b>Data-driven website changes.</b> Used funnel analysis to prioritize client website changes, then measured each against its KPI, improving campaign ROI by 15%.</li>
+            <li><b>Paid search experimentation.</b> Set up and managed a client Google Ads campaign, running A/B tests and shifting budget based on results.</li>
+            <li><b>KPI reporting.</b> Defined traffic, engagement, and conversion KPIs and built Google Sheets reporting that merged multiple marketing sources into one view, replacing manual compilation.</li>
+            <li><b>Social analytics.</b> Analyzed post-level engagement on client social pages and wrote copy and content.</li>
+          </ul>
+        </article>
+
+        <article class="job reveal">
+          <div class="job-head"><h3>Marketing Analyst</h3><span class="when">Aug 2020 – Jan 2021</span></div>
+          <div class="org">Web Digital Mantra · Bangalore</div>
+          <p class="intro">Analytics and client support for five clients across domains, including e-commerce and stock broking.</p>
+          <ul class="points">
+            <li><b>Client reporting.</b> Produced monthly website analytics and user-metrics reports and dashboards, and presented findings to clients.</li>
+            <li><b>Requirements to delivery.</b> Gathered client inputs and translated them for the internal team, and provided technical support on client sites.</li>
+          </ul>
+        </article>
+      </div>
+
+      <aside class="aside reveal">
+        <div class="edu">
+          <h4>Education</h4>
+          <div class="edu-item"><b>M.S., Applied Data Intelligence</b><span>San José State University</span><em>May 2026</em></div>
+          <div class="edu-item"><b>B.E., Electronics &amp; Communication Engineering</b><span>Saranathan College of Engineering</span><em>2014</em></div>
+        </div>
+        <div class="edu">
+          <h4>Recognition</h4>
+          <div class="edu-item"><b>Finalist, AWS Agentic AI Hackathon</b><span>AWS Community Day Bay Area · top 5 of 12 teams</span><em>Oct 2026</em></div>
+        </div>
+      </aside>
+    </div>
   </div>
 </section>
 
-<!-- PROJECTS -->
-<section id="projects">
+<!-- ======================= SKILLS ======================= -->
+<section id="skills" class="alt">
   <div class="wrap">
-    <h2>Projects</h2>
-    <p class="intro">Grouped by the kind of problem they solve. More work, including smaller experiments, is on GitHub.</p>
-
-    <!-- Marketing & Growth -->
-    <div class="group">
-      <div class="group-head"><h3>Marketing and growth analytics</h3><span class="count">3 projects</span></div>
-      <p class="group-sub">Measuring what drives performance, which customers are worth acting on, and where spend should go.</p>
-      <div class="projects">
-
-        <article class="project featured">
-          <h4>Marketing mix model and budget allocator</h4>
-          <p>Bayesian MMM built with Google Meridian on its simulated demo dataset: 156 weeks of data from 40 markets across 5 paid channels, modeled at the national level. VIF-informed priors handle collinearity between channels, and a constrained optimizer recommends how to reallocate a fixed $219.5M budget. The model converged across 4 MCMC chains (max R-hat 1.004) and predicts weekly revenue within 4.4% (MAPE). Results are delivered through a five-page Looker Studio dashboard.</p>
-          <div class="result">Moving $4.8M into the most underfunded channel ($7.7M shifted in total) projects +0.35% (about $1.0M) more media-driven revenue at the same budget; every channel's marginal ROI is below 1.0, so reallocation beats adding spend</div>
-          <div class="tools">Python, Google Meridian, Bayesian inference, Looker Studio</div>
-          <div class="links">
-            <a href="https://github.com/Lakshmibharathy11/Marketing-Mix-Modeling-for-Multichannel-Budget-Allocation" target="_blank" rel="noopener">View code</a>
-            <a href="https://datastudio.google.com/reporting/4b8a253d-cede-481e-bd2c-54a4517b0cd9" target="_blank" rel="noopener">Open dashboard</a>
-          </div>
-        </article>
-
-        <article class="project">
-          <h4>Incrementality and uplift modeling</h4>
-          <p>T-learner and X-learner uplift models on the Criteo dataset (13.9M+ users) to separate conversions caused by ads from conversions that would have happened anyway. Evaluated with Qini curves and AUUC.</p>
-          <div class="result">Top 30% of users by predicted uplift capture 88.7% of incremental responders, projecting 15.6x marketing ROI</div>
-          <div class="tools">Python, causal inference, uplift modeling</div>
-          <div class="links">
-            <a href="https://www.youtube.com/watch?v=QV7yTNwBOlk" target="_blank" rel="noopener">Watch demo</a>
-          </div>
-        </article>
-
-        <article class="project">
-          <h4>Customer retention priority dashboard</h4>
-          <p>RFM segmentation, customer lifetime value, and churn risk for about 5,878 customers from the Online Retail II dataset. Found and removed a Recency leakage issue before finalizing the logistic regression churn model; Random Forest was tested and underperformed.</p>
-          <div class="result">Top 50 customers hold £9.26M, 24.7% of projected value; churn model reaches 69.6% accuracy after the leakage fix</div>
-          <div class="tools">Python, RFM, CLV, logistic regression</div>
-          <div class="links">
-            <a href="https://github.com/Lakshmibharathy11/Retention-Priority-Dashboard-RFM-CLV-and-Churn-Risk" target="_blank" rel="noopener">View code</a>
-          </div>
-        </article>
-
-      </div>
+    <div class="sec-head reveal">
+      <span class="eyebrow">04 · Skills</span>
+      <h2>The decision stack</h2>
+      <p>My depth is in statistics and analysis. The engineering and AI skills come from building the projects above end to end.</p>
     </div>
-
-    <!-- Data & Analytics -->
-    <div class="group">
-      <div class="group-head"><h3>Data and analytics</h3><span class="count">4 projects</span></div>
-      <p class="group-sub">Getting data into shape and turning it into answers: pipelines, warehouses, and statistical analysis.</p>
-      <div class="projects">
-
-        <article class="project">
-          <h4>Law enforcement data ETL pipeline</h4>
-          <p>Solo-built pipeline that orchestrates ingestion with Airflow, loads into Snowflake, and models the warehouse with dbt, all containerized with Docker. Includes automated data tests and historical snapshots to track how records change over time.</p>
-          <div class="tools">Airflow, dbt, Snowflake, Docker, SQL</div>
-          <div class="links">
-            <!-- TODO: replace with the repo URL -->
-            <a href="https://github.com/Lakshmibharathy11" target="_blank" rel="noopener">View on GitHub</a>
-          </div>
-        </article>
-
-        <article class="project">
-          <h4>Tesla stock sentiment pipeline</h4>
-          <p>Group project for DATA 226 at SJSU combining stock data with tweet sentiment. My part: VADER sentiment scoring, Snowflake ELT, SQL regression, Airflow scheduling, and dbt modeling.</p>
-          <div class="result">R² = 0.916; next-day price most influenced by lagged 3- and 7-day sentiment averages</div>
-          <div class="tools">Airflow, Snowflake, dbt, SQL, Python</div>
-          <div class="links">
-            <a href="https://github.com/Lakshmibharathy11/Tesla_stock_sentiment_analysis" target="_blank" rel="noopener">View code</a>
-          </div>
-        </article>
-
-        <article class="project">
-          <h4>Corporate bankruptcy early warning system</h4>
-          <p>47 financial ratios across 3,722 companies, with temporal cross-validation enforcing a strict 2-year prediction horizon to prevent data leakage.</p>
-          <div class="result">ROC-AUC 0.84 and 76% recall at 14% false positive rate, outperforming the Altman Z-Score (0.71)</div>
-          <div class="tools">Python, XGBoost, statsmodels, temporal cross-validation</div>
-          <div class="links">
-            <!-- TODO: replace with the repo URL -->
-            <a href="https://github.com/Lakshmibharathy11" target="_blank" rel="noopener">View on GitHub</a>
-          </div>
-        </article>
-
-        <article class="project">
-          <h4>Price elasticity and SKU pricing strategy</h4>
-          <p>Log-log regression across 5,242 SKUs and 131,706 transactions to estimate price elasticity of demand for retail pricing decisions.</p>
-          <div class="result">10 statistically significant SKUs (p &lt; 0.05, R² &gt; 0.40); top SKU elasticity of −1.39</div>
-          <div class="tools">Python, statsmodels, pandas, Power BI</div>
-          <div class="links">
-            <!-- TODO: replace with the repo URL -->
-            <a href="https://github.com/Lakshmibharathy11" target="_blank" rel="noopener">View on GitHub</a>
-          </div>
-        </article>
-
-        <!-- TODO: salary prediction dashboard, pending details -->
-
+    <div class="skills">
+      <div class="skill reveal">
+        <div class="skill-head"><div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M6 3v12M18 9v12M6 15a3 3 0 1 0 0 6 3 3 0 0 0 0-6zM18 3a3 3 0 1 0 0 6 3 3 0 0 0 0-6zM6 9c0 6 12 0 12 6"/></svg></div><h3>Decision &amp; causal inference</h3></div>
+        <div class="chips"><span class="chip">Uplift modeling (T-, X-learner)</span><span class="chip">Incrementality</span><span class="chip">A/B testing</span><span class="chip">Bayesian MMM (Google Meridian)</span><span class="chip">Qini / AUUC</span><span class="chip">Budget optimization</span></div>
       </div>
-    </div>
-
-    <!-- AI & Automation -->
-    <div class="group">
-      <div class="group-head"><h3>AI and automation</h3><span class="count">4 projects</span></div>
-      <p class="group-sub">Automated workflows and LLM systems, built with evaluation in mind.</p>
-      <div class="projects">
-
-        <article class="project">
-          <h4>Automated job monitoring system</h4>
-          <p>Runs on a scheduled GitHub Actions workflow: pulls new roles from the YC Work at a Startup and Greenhouse APIs, filters by location and seniority, scores each against a skill profile, and sends ranked email digests and WhatsApp alerts. SQLite handles deduplication, and a local Streamlit dashboard tracks demand trends.</p>
-          <div class="tools">Python, GitHub Actions, SQLite, Twilio, Streamlit</div>
-          <div class="links"><span class="note">Private repository</span></div>
-        </article>
-
-        <article class="project">
-          <h4>AI customer support triage agent</h4>
-          <p>LangGraph agent that retrieves answers from a synthetic knowledge base (FAISS with all-MiniLM-L6-v2 embeddings) using Groq-hosted models. A custom evaluation harness scores each answer, and a human-in-the-loop gate catches responses with low faithfulness.</p>
-          <div class="result">Faithfulness 0.81 and relevance 0.94 (LLM-as-judge) at $0.00139 per ticket across 45 tickets</div>
-          <div class="tools">LangGraph, RAG, FAISS, Groq, LLM evaluation</div>
-          <div class="links">
-            <!-- TODO: replace with the repo URL -->
-            <a href="https://github.com/Lakshmibharathy11" target="_blank" rel="noopener">View on GitHub</a>
-          </div>
-        </article>
-
-        <article class="project">
-          <h4>Multimodal multi-agent image editing pipeline</h4>
-          <p>LangGraph orchestrates three models: LLaVA interprets the image, InstructPix2Pix makes the edit, and OpenCLIP evaluates the result.</p>
-          <div class="result">Average rubric score 4.03/5 and CLIP image similarity 0.938 across 12 workflow runs</div>
-          <div class="tools">LangGraph, LLaVA, InstructPix2Pix, OpenCLIP</div>
-          <div class="links">
-            <!-- TODO: replace with the repo URL -->
-            <a href="https://github.com/Lakshmibharathy11" target="_blank" rel="noopener">View on GitHub</a>
-          </div>
-        </article>
-
-        <article class="project">
-          <h4>Plate Planner</h4>
-          <p>Recipe recommendation and ingredient substitution API. A Neo4j graph stores ingredient relationships, and SentenceTransformers with FAISS power semantic search.</p>
-          <div class="tools">FastAPI, Neo4j, SentenceTransformers, FAISS, Docker Compose</div>
-          <div class="links">
-            <!-- TODO: replace with the repo URL -->
-            <a href="https://github.com/Lakshmibharathy11" target="_blank" rel="noopener">View on GitHub</a>
-          </div>
-        </article>
-
+      <div class="skill reveal">
+        <div class="skill-head"><div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M3 3v18h18"/><path d="m7 14 4-4 4 4 5-5"/></svg></div><h3>Statistics &amp; machine learning</h3></div>
+        <div class="chips"><span class="chip">Python (pandas, NumPy)</span><span class="chip">scikit-learn</span><span class="chip">statsmodels</span><span class="chip">XGBoost</span><span class="chip">PyTorch</span><span class="chip">Regression (logistic, log-log)</span><span class="chip">RFM &amp; CLV</span><span class="chip">MCMC</span></div>
+      </div>
+      <div class="skill reveal">
+        <div class="skill-head"><div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><ellipse cx="12" cy="5" rx="8" ry="3"/><path d="M4 5v6c0 1.7 3.6 3 8 3s8-1.3 8-3V5M4 11v6c0 1.7 3.6 3 8 3s8-1.3 8-3v-6"/></svg></div><h3>Data engineering &amp; cloud</h3></div>
+        <div class="chips"><span class="chip">SQL</span><span class="chip">Snowflake</span><span class="chip">PostgreSQL</span><span class="chip">MySQL</span><span class="chip">dbt</span><span class="chip">Airflow</span><span class="chip">Docker</span><span class="chip">GitHub Actions</span><span class="chip">AWS (S3, EC2, Athena)</span></div>
+      </div>
+      <div class="skill reveal">
+        <div class="skill-head"><div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M8 17v-5M12 17V8M16 17v-3"/></svg></div><h3>BI, web &amp; marketing analytics</h3></div>
+        <div class="chips"><span class="chip">Looker Studio</span><span class="chip">Power BI</span><span class="chip">Tableau</span><span class="chip">Google Analytics</span><span class="chip">SEMrush</span><span class="chip">Google Ads</span><span class="chip">Streamlit</span></div>
+      </div>
+      <div class="skill reveal" style="grid-column:1/-1">
+        <div class="skill-head"><div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M12 2v4M12 18v4M4.9 4.9l2.8 2.8M16.3 16.3l2.8 2.8M2 12h4M18 12h4M4.9 19.1l2.8-2.8M16.3 7.7l2.8-2.8"/></svg></div><h3>Applied AI</h3></div>
+        <div class="chips"><span class="chip">LangGraph</span><span class="chip">Multi-agent systems</span><span class="chip">RAG</span><span class="chip">LLM evaluation</span><span class="chip">FAISS</span><span class="chip">FastAPI</span></div>
       </div>
     </div>
   </div>
 </section>
 
-<!-- THESIS -->
-<section id="thesis">
-  <div class="wrap">
-    <h2>Graduate thesis</h2>
-    <div class="thesis-title">Eye-Tracking Based Direction Control Using Machine Learning Technique</div>
-    <div class="thesis-meta">M.S. thesis, San José State University, May 2026</div>
-
-    <div class="thesis-body">
-      <p>Eye-tracking lets a machine take direction from where a person looks, which helps when their hands aren't a reliable input. Gaze data is a noisy biological signal, full of micro-movements, blinks, and person-to-person differences, so the core problem was finding a representation stable enough to classify reliably, both for one person and across people.</p>
-    </div>
-
-    <ol class="method" aria-label="Research approach">
-      <li><span class="step">Data collection</span><span class="detail">Lab-collected eye-tracking recordings of directional gaze</span></li>
-      <li><span class="step">Validation</span><span class="detail">Checked labels against physical gaze behavior and for directional bias</span></li>
-      <li><span class="step">Feature engineering</span><span class="detail">Coordinate, time-aggregated, and eye-image representations</span></li>
-      <li><span class="step">Modeling</span><span class="detail">Classical ML classifiers compared with fine-tuned CNNs</span></li>
-      <li><span class="step">Evaluation</span><span class="detail">Personalized and cross-user generalization testing</span></li>
-    </ol>
-
-    <div class="uses">
-      <div class="use">
-        <h4>Personal assistive devices</h4>
-        <p>Wheelchair navigation for one repeat user, where the model can be calibrated to that individual.</p>
-      </div>
-      <div class="use">
-        <h4>Shared control systems</h4>
-        <p>Teleoperated drones or robots handed between operators, where the model must work for someone it has never seen.</p>
-      </div>
-    </div>
-
-    <div class="pub">
-      <span class="label">DOI</span>
-      <a href="https://doi.org/10.31979/etd.h3rd-h8n2" target="_blank" rel="noopener">10.31979/etd.h3rd-h8n2</a>
-      <a href="https://github.com/Lakshmibharathy11/Graduate_Thesis" target="_blank" rel="noopener">View code</a>
-    </div>
-  </div>
-</section>
-
-<!-- SKILLS -->
-<section id="skills">
-  <div class="wrap">
-    <h2>Skills</h2>
-    <p class="intro">Most of my depth is in analysis and statistics; the engineering and AI work came from building the projects above.</p>
-    <dl class="skills">
-      <div class="skill-row"><dt>Analysis and statistics</dt><dd>SQL, Python (pandas, NumPy), statistical modeling, A/B testing, causal inference, Bayesian modeling</dd></div>
-      <div class="skill-row"><dt>BI and marketing analytics</dt><dd>Looker Studio, Power BI, Google Analytics, SEMrush, Google Ads, Google Sheets</dd></div>
-      <div class="skill-row"><dt>Data engineering</dt><dd>Airflow, dbt, Snowflake, PostgreSQL, Docker, GitHub Actions, AWS (EC2, S3, ECS)</dd></div>
-      <div class="skill-row"><dt>Machine learning and AI</dt><dd>scikit-learn, XGBoost, PyTorch, LangGraph, RAG, LLM evaluation, FastAPI</dd></div>
-    </dl>
-  </div>
-</section>
-
-<!-- CONTACT -->
+<!-- ======================= CONTACT ======================= -->
 <section id="contact" class="contact">
-  <div class="wrap">
-    <h2>Get in touch</h2>
-    <p>I'm looking for Data Scientist, Data Analyst, and Analytics Engineer roles in the Bay Area, especially in marketing and growth analytics.</p>
-    <div class="actions">
-      <a class="btn primary" href="mailto:lakshmibharathyk@gmail.com">Email me</a>
-      <a class="btn" href="https://linkedin.com/in/lakshmi-bharathy-kumar" target="_blank" rel="noopener">LinkedIn</a>
-      <a class="btn" href="https://github.com/Lakshmibharathy11" target="_blank" rel="noopener">GitHub</a>
+  <div class="wrap contact-inner reveal">
+    <span class="eyebrow">05 · Contact</span>
+    <h2>Let's talk about the decisions your data should drive.</h2>
+    <p>I'm looking for <strong style="color:#fff">Associate Decision Scientist, Growth &amp; Marketing Data Scientist, and Customer / Growth Analytics</strong> roles in the San Francisco Bay Area, and I'm open to remote.</p>
+    <div class="cta">
+      <a class="btn btn-primary" href="mailto:lakshmibharathy.kumar@gmail.com"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 6-10 7L2 6"/></svg>Email me</a>
+      <a class="btn btn-ghost" href="https://www.linkedin.com/in/lakshmibharathy-kumar" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M20.45 20.45h-3.56v-5.57c0-1.33-.02-3.04-1.85-3.04-1.85 0-2.14 1.45-2.14 2.94v5.67H9.35V9h3.41v1.56h.05c.48-.9 1.64-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.46v6.28zM5.34 7.43a2.06 2.06 0 1 1 0-4.13 2.06 2.06 0 0 1 0 4.13zM7.12 20.45H3.56V9h3.56v11.45z"/></svg>Connect on LinkedIn</a>
+      <a class="btn btn-ghost" href="https://github.com/Lakshmibharathy11" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 .3a12 12 0 0 0-3.8 23.4c.6.1.8-.3.8-.6v-2c-3.3.7-4-1.6-4-1.6-.6-1.4-1.4-1.8-1.4-1.8-1-.7.1-.7.1-.7 1.2.1 1.8 1.2 1.8 1.2 1 1.8 2.8 1.3 3.5 1 0-.8.4-1.3.7-1.6-2.7-.3-5.5-1.3-5.5-5.9 0-1.3.5-2.4 1.2-3.2 0-.4-.5-1.6.2-3.2 0 0 1-.3 3.3 1.2a11.5 11.5 0 0 1 6 0C17.3 4.7 18.3 5 18.3 5c.7 1.6.2 2.8.1 3.2.8.8 1.2 1.9 1.2 3.2 0 4.6-2.8 5.6-5.5 5.9.5.4.9 1.1.9 2.2v3.3c0 .3.2.7.8.6A12 12 0 0 0 12 .3"/></svg>GitHub</a>
     </div>
+    <div class="email-line">lakshmibharathy.kumar@gmail.com</div>
   </div>
 </section>
-
 </main>
 
 <footer>
-  <div class="wrap">Lakshmi Bharathy Kumar, San Jose, CA, 2026</div>
+  <div class="wrap foot">
+    <span>© 2026 Lakshmi Bharathy Kumar · San Jose, CA</span>
+    <span><a href="#top">Back to top ↑</a></span>
+  </div>
 </footer>
 
+<script>
+(function(){
+  document.body.classList.remove('no-js');
+
+  // Hide any link still pointing to a placeholder (#TODO)
+  document.querySelectorAll('a[href="#TODO"]').forEach(function(a){ a.remove(); });
+
+  // Theme toggle (remembered per browser when storage is available)
+  var root = document.documentElement, btn = document.getElementById('themeBtn');
+  try { var saved = localStorage.getItem('theme'); if (saved) root.setAttribute('data-theme', saved); } catch(e){}
+  btn.addEventListener('click', function(){
+    var current = root.getAttribute('data-theme') ||
+      (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
+    var next = current === 'dark' ? 'light' : 'dark';
+    root.setAttribute('data-theme', next);
+    try { localStorage.setItem('theme', next); } catch(e){}
+  });
+
+  // Mobile menu
+  var menuBtn = document.getElementById('menuBtn'), links = document.getElementById('navLinks');
+  menuBtn.addEventListener('click', function(){
+    var open = links.classList.toggle('open');
+    menuBtn.setAttribute('aria-expanded', open);
+  });
+  links.querySelectorAll('a').forEach(function(a){
+    a.addEventListener('click', function(){ links.classList.remove('open'); menuBtn.setAttribute('aria-expanded','false'); });
+  });
+
+  // Nav border on scroll
+  var nav = document.getElementById('nav');
+  window.addEventListener('scroll', function(){ nav.classList.toggle('scrolled', window.scrollY > 10); }, {passive:true});
+
+  // Reveal on scroll
+  var els = document.querySelectorAll('.reveal');
+  if ('IntersectionObserver' in window) {
+    var io = new IntersectionObserver(function(entries){
+      entries.forEach(function(e){ if (e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target); } });
+    }, {threshold:0.08, rootMargin:'0px 0px -40px 0px'});
+    els.forEach(function(el){ io.observe(el); });
+  } else { els.forEach(function(el){ el.classList.add('in'); }); }
+})();
+</script>
 </body>
 </html>
