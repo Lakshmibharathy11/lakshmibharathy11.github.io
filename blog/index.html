@@ -1,0 +1,48 @@
+---
+title: Weekly Learning Notes
+description: Weekly notes from Lakshmi Bharathy Kumar on A/B testing, product analytics, causal ML, SQL and Python, including what worked, what broke and what I would do differently.
+permalink: /blog/
+---
+<!DOCTYPE html>
+<html lang="en">
+<head>
+{% include blog-head.html %}
+</head>
+<body>
+{% include blog-nav.html %}
+<main id="main">
+  <section class="blog-hero" style="padding-bottom:40px">
+    <div class="wrap">
+      <span class="eyebrow">Blog · Weekly learning notes</span>
+      <h1>What I learned this week</h1>
+      <p>Short weekly notes on A/B testing, product analytics, causal ML, SQL and Python: what I built, what broke, and what I'd do differently next time.</p>
+    </div>
+  </section>
+
+  <section class="blog-list" style="padding-top:40px">
+    <div class="wrap">
+      {% if site.posts.size > 0 %}
+        {% if site.tags.size > 1 %}
+        <div class="tag-bar" id="tagBar" role="group" aria-label="Filter posts by topic">
+          <button type="button" data-tag="all" aria-pressed="true">All</button>
+          {% for tag in site.tags %}<button type="button" data-tag="{{ tag[0] }}" aria-pressed="false">{{ tag[0] }}</button>{% endfor %}
+        </div>
+        {% endif %}
+        {% for post in site.posts %}
+          {% assign words = post.content | number_of_words %}{% assign mins = words | divided_by: 220 | plus: 1 %}
+          <a class="post-item" href="{{ post.url | relative_url }}" data-tags="{{ post.tags | join: '|' }}">
+            <div class="post-meta"><time datetime="{{ post.date | date_to_xmlschema }}">{{ post.date | date: '%b %-d, %Y' }}</time>{% if post.week %} · {{ post.week }}{% endif %} · {{ mins }} min read</div>
+            <h2>{{ post.title }}</h2>
+            <p>{% if post.summary %}{{ post.summary }}{% else %}{{ post.excerpt | strip_html | truncatewords: 40 }}{% endif %}</p>
+            {% if post.tags.size > 0 %}<div class="chips">{% for t in post.tags %}<span class="chip">{{ t }}</span>{% endfor %}</div>{% endif %}
+          </a>
+        {% endfor %}
+      {% else %}
+        <p class="empty">The first post is on its way. In the meantime, see the <a href="{{ '/#work' | relative_url }}">featured projects</a>.</p>
+      {% endif %}
+    </div>
+  </section>
+</main>
+{% include blog-footer.html %}
+</body>
+</html>

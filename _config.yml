@@ -1,0 +1,44 @@
+title: Lakshmi Bharathy Kumar
+description: >-
+  Associate Data Scientist. Weekly notes on machine learning and AI,
+  A/B testing, causal ML, product analytics, SQL and Python.
+author: Lakshmi Bharathy Kumar
+url: https://lakshmibharathy11.github.io
+baseurl: ""
+lang: en_US
+
+# Blog posts live at /blog/YYYY/MM/post-title/
+permalink: /blog/:year/:month/:title/
+
+markdown: kramdown
+highlighter: rouge
+kramdown:
+  input: GFM
+  syntax_highlighter: rouge
+
+plugins:
+  - jekyll-feed
+  - jekyll-sitemap
+  - jekyll-seo-tag
+
+feed:
+  path: blog/feed.xml
+
+social:
+  name: Lakshmi Bharathy Kumar
+  links:
+    - https://www.linkedin.com/in/lakshmibharathy-kumar
+    - https://github.com/Lakshmibharathy11
+
+defaults:
+  - scope:
+      path: ""
+      type: posts
+    values:
+      layout: post
+      image: /assets/og-image.png
+
+exclude:
+  - README.md
+  - Gemfile
+  - Gemfile.lock
